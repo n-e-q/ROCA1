@@ -4,16 +4,75 @@
 	<meta charset="ISO-8859-1">
 	<title>ROCA2</title>
 	<link rel="stylesheet" href="ROCA2.css">
+	<script type="text/javascript" src="ROCA2.js"></script>
 </head>
-<body>
+<body onload="setAllDefaultValues()">
+	<iframe name="dump_data_frame" id="dump_data_frame"></iframe>
 	<div class = "body_content">
 		<div class="left_side">
 			<div class="top_left_side">
-				<div class="student_inputs">
-				classroom
+				<div class="classroom_mapping">
+					<form id="student_events_form" target="dump_data_frame">
+					<div class="quadrant" id="q1" onmouseover="showEventInputs(this)" onmouseout="hideEventInputs(this)">
+						<div id="title1">1</div>
+						<div class="quadrant_inputs" id="q1_inputs">
+							<button type="submit" class="input_button" value="SQ">SQ</button>
+							<button type="submit" class="input_button" value="SR">SR</button>
+							<button type="submit" class="input_button" value="WC">WC</button>
+							<button type="submit" class="input_button" value="PrD">PrD</button>
+						</div>
+					</div>
+					<div class="quadrant" id="q2" onmouseover="showEventInputs(this)" onmouseout="hideEventInputs(this)">
+						<div id="title2">2</div>
+						<div class="quadrant_inputs" id="q2_inputs">
+							<button type="submit" class="input_button" value="SQ">SQ</button>
+							<button type="submit" class="input_button" value="SR">SR</button>
+							<button type="submit" class="input_button" value="WC">WC</button>
+							<button type="submit" class="input_button" value="PrD">PrD</button>
+						</div>
+					</div>
+					<div class="quadrant" id="q3" onmouseover="showEventInputs(this)" onmouseout="hideEventInputs(this)">
+						<div id="title3">3</div>
+						<div class="quadrant_inputs" id="q3_inputs">
+							<button type="submit" class="input_button" value="SQ">SQ</button>
+							<button type="submit" class="input_button" value="SR">SR</button>
+							<button type="submit" class="input_button" value="WC">WC</button>
+							<button type="submit" class="input_button" value="PrD">PrD</button>
+						</div>
+					</div>
+					<div class="quadrant" id="q4" onmouseover="showEventInputs(this)" onmouseout="hideEventInputs(this)">
+						<div id="title4">4</div>
+						<div class="quadrant_inputs" id="q4_inputs">
+							<button type="submit" class="input_button" value="SQ">SQ</button>
+							<button type="submit" class="input_button" value="SR">SR</button>
+							<button type="submit" class="input_button" value="WC">WC</button>
+							<button type="submit" class="input_button" value="PrD">PrD</button>
+						</div>
+					</div>
+					<div class="quadrant" id="q5" onmouseover="showEventInputs(this)" onmouseout="hideEventInputs(this)">
+						<div id="title5">5</div>
+						<div class="quadrant_inputs" id="q5_inputs">
+							<button type="submit" class="input_button" value="SQ">SQ</button>
+							<button type="submit" class="input_button" value="SR">SR</button>
+							<button type="submit" class="input_button" value="WC">WC</button>
+							<button type="submit" class="input_button" value="PrD">PrD</button>
+						</div>
+					</div>
+					<div class="quadrant" id="q6" onmouseover="showEventInputs(this)" onmouseout="hideEventInputs(this)">
+						<div id="title6">6</div>
+						<div class="quadrant_inputs" id="q6_inputs">
+							<button type="submit" class="input_button" value="SQ">SQ</button>
+							<button type="submit" class="input_button" value="SR">SR</button>
+							<button type="submit" class="input_button" value="WC">WC</button>
+							<button type="submit" class="input_button" value="PrD">PrD</button>
+						</div>
+					</div>
+					</form>
 				</div>
-				<div class="instructor_inputs">
-				instructor
+				<div class="start_end_buttons">
+					<button type="button" id="start_button" onclick="start()">Start Observation</button>
+					<button type="button" id="pause_button" onclick="pause()">Pause Observation</button>
+					<button type="button" id="end_button" onclick="end()">End Observation</button>
 				</div>
 			</div>
 			<div class="bottom_left_side">
@@ -21,7 +80,96 @@
 				<div class="feedback_container">Hi</div>
 			</div>
 		</div>
-		<div class="right_side">right</div>
+		
+		<div class = "middle">
+			<div class="Student_Activities">
+				<div class="header">Student Activities</div>
+				<form id="student_activities_form" target="dump_data_frame">
+				<select name="student_activities_select" id="student_activities_select" onchange="testSubmit(this)">
+					<option disabled selected value> -- select an option -- </option>
+			        <option value="SGW">SGW</option>
+			        <option value="GD">GD</option>
+			        <option value="SP">SP</option>
+			        <option value="DW">DW</option>
+			    </select>
+			    </form>
+			</div>
+			<div class="Instructor_Activities">
+				<div class="header">Instructor Activities</div>
+				<form id="instructor_activities_form" target="dump_data_frame">
+				<select name="instructor_activities_select" id="instructor_activities_select" onchange="showSubSelectMenu()">
+					<option disabled selected value> -- select an option -- </option>
+			        <option value="L">L</option>
+			        <option value="LW">LW</option>
+			        <option value="LVIS">LVIS</option>
+			        <option value="LDEM">LDEM</option>
+			        <option value="IL">IL</option>
+			        <option value="MM">MM</option>
+			        <option value="CQ">CQ</option>
+			        <option value="AT">AT</option>
+			        <option value="ID">ID</option>
+			    </select>
+			    <select name="sub_menu" id="sub_menu" onchange="testSubmit(this)">
+			    	<option disabled selected value> -- select an option -- </option>
+			        <option value="1">1</option>
+			        <option value="2">2</option>
+			        <option value="3">3</option>
+			        <option value="4">4</option>
+			    </select>
+			    </form>
+			</div>
+			<div class="Instructor_Events">
+				<div class="header">Instructor Events</div>
+				<form id="instructor_events_form" target="dump_data_frame">
+					<button type="submit" class="input_button" value="IRQ">Rhetorical Question</button>
+					<button type="submit" class="input_button" value="IDQ">Display Question</button>
+					<button type="submit" class="input_button" value="ICQ">Comprehension Question</button>
+					<button type="submit" class="input_button" value="FUp">Provides Feedback</button>
+				</form>
+			</div>
+		</div>
+		
+		<div class="right_side">
+			<div class="header">Interval Readings</div>
+			<div class="interval_timer">x time before next reading</div>
+			<form id="interval_readings_form" target="data_dump_frame">
+			<div id="Pedagogical_Strategies">
+				<div class="subheader">Pedagogical Strategies</div>
+				<ul class="checkbox-grid">
+				    <li><input type="checkbox" name="WP" value="WP" /><label for="WP">WP</label></li>
+				    <li><input type="checkbox" name="W" value="W" /><label for="W">W</label></li>
+				    <li><input type="checkbox" name="HUM" value="HUM" /><label for="HUM">HUM</label></li>
+				    <li><input type="checkbox" name="ANEX" value="ANEX" /><label for="ANEX">ANEX</label></li>
+				    <li><input type="checkbox" name="ORG" value="ORG" /><label for="ORG">ORG</label></li>
+				    <li><input type="checkbox" name="EMP" value="EMP" /><label for="EMP">EMP</label></li>
+				    <li><input type="checkbox" name="IND" value="IND" /><label for="IND">IND</label></li>
+				    <li><input type="checkbox" name="MG" value="MG" /><label for="MG">MG</label></li>
+				    <li><input type="checkbox" name="MT" value="MT" /><label for="MT">MT</label></li>
+				    <li><input type="checkbox" name="iID" value="iID" /><label for="iID">iID</label></li>
+				</ul>
+			</div>
+			<div id="Instructional_Technologies">
+				<div class="subheader">Instructional Technologies</div>
+				<ul class="checkbox-grid">
+				    <li><input type="checkbox" name="DP" value="DP" /><label for="DP">DP</label></li>
+				    <li><input type="checkbox" name="PP" value="PP" /><label for="PP">PP</label></li>
+				    <li><input type="checkbox" name="DT" value="DT" /><label for="DT">DT</label></li>
+				    <li><input type="checkbox" name="CB" value="CB" /><label for="CB">CB</label></li>
+				    <li><input type="checkbox" name="M" value="M" /><label for="M">M</label></li>
+				    <li><input type="checkbox" name="WEB" value="WEB" /><label for="WEB">WEB</label></li>
+				</ul>
+			</div>
+			<div id="Student_Engagement">
+				<div class="subheader">Student Engagement</div>
+				<ul class="checkbox-grid">
+				    <li><input type="checkbox" name="PI" value="PI" /><label for="PI">PI</label></li>
+				    <li><input type="checkbox" name="IT" value="IT" /><label for="IT">IT</label></li>
+				    <li><input type="checkbox" name="TN" value="TN" /><label for="TN">TN</label></li>
+				    <li><input type="checkbox" name="LI" value="LI" /><label for="LI">LI</label></li>
+				</ul>
+			</div>
+			</form>
+		</div>
 	</div>
 </body>
 </html>

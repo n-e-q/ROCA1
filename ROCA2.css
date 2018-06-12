@@ -14,7 +14,7 @@ body {
 .body_content {
 	height: 100%;
 	display: grid;
-	grid-template-columns: 75% 24%;
+	grid-template-columns: 56% 18% 24%;
 	grid-gap: 1%;
 	
 }
@@ -25,11 +25,21 @@ body {
 	grid-gap: 1%;
 }
 
+.middle {
+	display: grid;
+	grid-template-rows: 30% 38% 30%;
+	grid-gap: 1%;
+}
+
 .right_side {
 	border: solid;
+	display: flex;
+	flex-direction: column;
 }
 
 .top_left_side {
+	display: grid;
+	grid-template-rows: 80% 20%;
 	border: solid;
 }
 
@@ -44,8 +54,119 @@ body {
 	padding: 0.5%;
 }
 
+.interval_timer {
+	text-align: center;
+	margin: 1%;
+}
+
+#interval_readings_form {
+	flex-grow: 1;
+	display: grid;
+	height: 90%;
+	grid-template-rows: 50% 25% 20%;
+}
+
+#Pedagogical_Strategies {
+	
+	margin: 1%;
+	border: dotted;
+}
+
+#Instructional_Technologies {
+	margin: 1%;
+	border: dotted;
+}
+
+#Student_Engagement {
+	margin: 1%;
+	border: dotted;
+}
+
+.Student_Activities {
+	border: solid;
+}
+
+.Instructor_Activities {
+	border: solid;
+}
+
+.Instructor_Events {
+	border: solid;
+}
+
+.start_end_buttons {
+	background: #DCDCDC;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+}
+
+.classroom_mapping {
+	background-image: url("MEC-341.jpg");
+	background-size: 100% 100%;
+}
+
+#student_events_form {
+	
+	height: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 40% 60%;
+}
+
+.quadrant {
+	border: solid;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: xx-large;
+    color: yellow;
+}
+
+.quadrant_inputs {
+	height: 100%;
+	width: 100%;
+	background: white;
+	z-index: 2;
+}
+
+
 .header {
 	outline: solid;
-	background: yellow;
+	background: #FFFF99;
 	text-align: center;
+}
+
+.subheader {
+	outline: dotted;
+	background: #FFFFCC;
+	text-align: center;
+}
+
+.checkbox-grid li {
+    display: block;
+    float: left;
+    width: 50%;
+    margin-bottom: 4%;
+}
+
+.input_button {
+	width: 100%;
+}
+
+#student_activities_select {
+	width: 100%;
+}
+
+#instructor_activities_select {
+	width: 100%;
+}
+
+#sub_menu {
+	width: 100%;
+}
+
+#dump_data_frame {
+	display: none;
 }

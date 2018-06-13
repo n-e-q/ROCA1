@@ -14,7 +14,7 @@ body {
 .body_content {
 	height: 100%;
 	display: grid;
-	grid-template-columns: 56% 18% 24%;
+	grid-template-columns: 75% 24%;
 	grid-gap: 1%;
 	
 }
@@ -25,7 +25,7 @@ body {
 	grid-gap: 1%;
 }
 
-.middle {
+.ae_inputs {
 	display: grid;
 	grid-template-rows: 30% 38% 30%;
 	grid-gap: 1%;
@@ -39,14 +39,23 @@ body {
 
 .top_left_side {
 	display: grid;
-	grid-template-rows: 80% 20%;
-	border: solid;
+	grid-template-columns: 79% 20%;
+	grid-gap: 1%;
 }
 
 .bottom_left_side {
 	display: flex;
 	flex-direction: column;
 	border: solid;
+}
+
+.map_and_buttons {
+	border: solid;
+	display: grid;
+	grid-template-rows: 80% 20%;
+}
+
+.ae_inputs {
 }
 
 .feedback_container {

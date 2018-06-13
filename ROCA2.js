@@ -2,6 +2,7 @@
  * 
  */
 var hasStarted = false;
+var paused = false;
 
 /* Set default values of elements when app first loads*/
 function setAllDefaultValues() {
@@ -50,7 +51,48 @@ function start() {
 	
 	document.getElementById("start_button").style.display="none";
 	document.getElementById("pause_button").style.display="block";
+	document.getElementById("pause_button").innerHTML = "Pause Observation";
 	document.getElementById("end_button").style.display="block";
+}
+
+function pauseOrUnPause() {
+	if(!paused){
+		document.getElementById("sub_menu").style.display = "none";
+		var inputs = document.getElementsByTagName("INPUT");
+		for (var i = 0; i < inputs.length; i++) {
+		    inputs[i].disabled = true;
+		}
+		inputs = document.getElementsByClassName("input_button");
+		for (var i = 0; i < inputs.length; i++) {
+		    inputs[i].disabled = true;
+		}
+		document.getElementById("student_activities_select").disabled = true;
+		document.getElementById("instructor_activities_select").disabled = true;
+		
+		inputs = document.getElementsByClassName("quadrant_inputs");
+		for (var i = 0; i < inputs.length; i++) {
+		    inputs[i].style.display = "none";
+		}
+		document.getElementById("pause_button").innerHTML = "Unpause Observation";
+		paused = true;
+		alert("The observation has been PAUSED.");
+	}
+	else {
+		var inputs = document.getElementsByTagName("INPUT");
+		for (var i = 0; i < inputs.length; i++) {
+		    inputs[i].disabled = false;
+		}
+		inputs = document.getElementsByClassName("input_button");
+		for (var i = 0; i < inputs.length; i++) {
+		    inputs[i].disabled = false;
+		}
+		document.getElementById("student_activities_select").disabled = false;
+		document.getElementById("instructor_activities_select").disabled = false;
+		document.getElementById("pause_button").innerHTML = "Pause Observation";
+		paused = false;
+		alert("The observation has been UNPAUSED.");
+	}
+	
 }
 
 function end() {
@@ -80,7 +122,7 @@ function testSubmit(x) {
 }
 
 function showEventInputs(x) {
-	if(hasStarted){
+	if(hasStarted && !paused){
 		if(x.id=="q1"){
 			document.getElementById("q1_inputs").style.display = "grid";
 		}

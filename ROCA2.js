@@ -2,7 +2,6 @@
  * 
  */
 var hasStarted = false;
-var paused = false;
 
 /* Set default values of elements when app first loads*/
 function setAllDefaultValues() {
@@ -19,7 +18,6 @@ function setAllDefaultValues() {
 	document.getElementById("instructor_activities_select").disabled = true;
 	
 	document.getElementById("start_button").style.display="block";
-	document.getElementById("pause_button").style.display="none";
 	document.getElementById("end_button").style.display="none";
 	
 	inputs = document.getElementsByClassName("quadrant_inputs");
@@ -50,57 +48,16 @@ function start() {
 	document.getElementById("instructor_activities_select").disabled = false;
 	
 	document.getElementById("start_button").style.display="none";
-	document.getElementById("pause_button").style.display="block";
-	document.getElementById("pause_button").innerHTML = "Pause Observation";
 	document.getElementById("end_button").style.display="block";
 }
 
-function pauseOrUnPause() {
-	if(!paused){
-		document.getElementById("sub_menu").style.display = "none";
-		var inputs = document.getElementsByTagName("INPUT");
-		for (var i = 0; i < inputs.length; i++) {
-		    inputs[i].disabled = true;
-		}
-		inputs = document.getElementsByClassName("input_button");
-		for (var i = 0; i < inputs.length; i++) {
-		    inputs[i].disabled = true;
-		}
-		document.getElementById("student_activities_select").disabled = true;
-		document.getElementById("instructor_activities_select").disabled = true;
-		
-		inputs = document.getElementsByClassName("quadrant_inputs");
-		for (var i = 0; i < inputs.length; i++) {
-		    inputs[i].style.display = "none";
-		}
-		document.getElementById("pause_button").innerHTML = "Unpause Observation";
-		paused = true;
-		alert("The observation has been PAUSED.");
-	}
-	else {
-		var inputs = document.getElementsByTagName("INPUT");
-		for (var i = 0; i < inputs.length; i++) {
-		    inputs[i].disabled = false;
-		}
-		inputs = document.getElementsByClassName("input_button");
-		for (var i = 0; i < inputs.length; i++) {
-		    inputs[i].disabled = false;
-		}
-		document.getElementById("student_activities_select").disabled = false;
-		document.getElementById("instructor_activities_select").disabled = false;
-		document.getElementById("pause_button").innerHTML = "Pause Observation";
-		paused = false;
-		alert("The observation has been UNPAUSED.");
-	}
-	
-}
-
+/* End observation by resetting all values*/
 function end() {
 	hasStarted = false;
 	setAllDefaultValues();
 }
 
-
+/* If option in "Instructor Events" has sub-options, show sub-menu*/
 function showSubSelectMenu() {
 	if(document.getElementById("instructor_activities_select").value=="AT"){
 		document.getElementById("sub_menu").style.display = "block"
@@ -113,6 +70,7 @@ function showSubSelectMenu() {
 	
 }
 
+/* Submit and reset forms */
 function testSubmit(x) {
 	x.form.submit();
 	x.form.reset();
@@ -121,8 +79,9 @@ function testSubmit(x) {
 	}
 }
 
+/* Show inputs for classroom mapping when hover over areas*/
 function showEventInputs(x) {
-	if(hasStarted && !paused){
+	if(hasStarted){
 		if(x.id=="q1"){
 			document.getElementById("q1_inputs").style.display = "grid";
 		}
@@ -144,6 +103,7 @@ function showEventInputs(x) {
 	}
 }
 
+/* Hide inputs for classroom mapping when area is not hovered over*/
 function hideEventInputs(x) {
 	if(x.id=="q1"){
 		document.getElementById("q1_inputs").style.display = "none";

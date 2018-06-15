@@ -14,21 +14,28 @@ body {
 .body_content {
 	height: 100%;
 	display: grid;
-	grid-template-columns: 75% 24%;
+	grid-template-columns: 24% 52% 22%;
 	grid-gap: 1%;
 	
 }
 
 .left_side {
+	display: flex;
+	flex-direction: column;
+	border: solid;	
+}
+
+.middle {
 	display: grid;
-	grid-template-rows: 69% 30%;
+	grid-template-rows: 30% 69%;
 	grid-gap: 1%;
 }
 
 .ae_inputs {
+	height: 100%;
 	display: grid;
-	grid-template-rows: 30% 38% 30%;
-	grid-gap: 1%;
+	grid-template-columns: 32% 32% 32%;
+	grid-gap: 2%;
 }
 
 .right_side {
@@ -37,33 +44,29 @@ body {
 	flex-direction: column;
 }
 
-.top_left_side {
-	display: grid;
-	grid-template-columns: 79% 20%;
-	grid-gap: 1%;
+.top_middle {
 }
 
-.bottom_left_side {
-	display: flex;
-	flex-direction: column;
-	border: solid;
+.bottom_middle {
 }
 
 .map_and_buttons {
+	height: 99%;
 	border: solid;
 	display: grid;
 	grid-template-rows: 80% 20%;
 }
 
-.ae_inputs {
-}
 
-.feedback_container {
+#feedback_container {
 	flex-grow: 1;
-	padding: 0.5%;
+	overflow: scroll;
+	max-height: 100%;
+	max-width: 100%;
+	white-space:nowrap;
 }
 
-.interval_timer {
+#interval_timer {
 	text-align: center;
 	margin: 1%;
 }
@@ -93,14 +96,27 @@ body {
 
 .Student_Activities {
 	border: solid;
+	background: #DCDCDC;
 }
 
 .Instructor_Activities {
 	border: solid;
+	background: #DCDCDC;
 }
 
 .Instructor_Events {
 	border: solid;
+	display: flex;
+	flex-direction: column;
+	background: #DCDCDC;
+}
+
+#instructor_events_form {
+	flex-grow: 1;
+	outline: solid;
+	height: 90%;
+	display: grid;
+	grid-template-rows: 25% 25% 25% 25%;
 }
 
 .start_end_buttons {
@@ -162,6 +178,13 @@ body {
 
 .input_button {
 	width: 100%;
+}
+
+#start_button {
+	font-size: x-large;
+}
+#end_button {
+	font-size: x-large;
 }
 
 #student_activities_select {

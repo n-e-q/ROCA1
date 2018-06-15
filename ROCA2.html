@@ -9,77 +9,25 @@
 <body onload="setAllDefaultValues()">
 	<iframe name="dump_data_frame" id="dump_data_frame"></iframe>
 	<div class = "body_content">
+	
+		<!-- LEFT SIDE DIV: beginning -->
+		<!-- Contains feedback container -->
 		<div class="left_side">
-			<div class="top_left_side">
-				<div class="map_and_buttons">
-					<div class="classroom_mapping">
-						<form id="student_events_form" target="dump_data_frame">
-						<div class="quadrant" id="q1" onmouseover="showEventInputs(this)" onmouseout="hideEventInputs(this)">
-							<div id="title1">1</div>
-							<div class="quadrant_inputs" id="q1_inputs">
-								<button type="submit" class="input_button" value="SQ" title="Display Question">SQ</button>
-								<button type="submit" class="input_button" value="SR" title="Response to Instructor">SR</button>
-								<button type="submit" class="input_button" value="WC" title="Response to Student">WC</button>
-								<button type="submit" class="input_button" value="PrD" title="Make Prediction">PrD</button>
-							</div>
-						</div>
-						<div class="quadrant" id="q2" onmouseover="showEventInputs(this)" onmouseout="hideEventInputs(this)">
-							<div id="title2">2</div>
-							<div class="quadrant_inputs" id="q2_inputs">
-								<button type="submit" class="input_button" value="SQ" title="Display Question">SQ</button>
-								<button type="submit" class="input_button" value="SR" title="Response to Instructor">SR</button>
-								<button type="submit" class="input_button" value="WC" title="Response to Student">WC</button>
-								<button type="submit" class="input_button" value="PrD" title="Make Prediction">PrD</button>
-							</div>
-						</div>
-						<div class="quadrant" id="q3" onmouseover="showEventInputs(this)" onmouseout="hideEventInputs(this)">
-							<div id="title3">3</div>
-							<div class="quadrant_inputs" id="q3_inputs">
-								<button type="submit" class="input_button" value="SQ" title="Display Question">SQ</button>
-								<button type="submit" class="input_button" value="SR" title="Response to Instructor">SR</button>
-								<button type="submit" class="input_button" value="WC" title="Response to Student">WC</button>
-								<button type="submit" class="input_button" value="PrD" title="Make Prediction">PrD</button>
-							</div>
-						</div>
-						<div class="quadrant" id="q4" onmouseover="showEventInputs(this)" onmouseout="hideEventInputs(this)">
-							<div id="title4">4</div>
-							<div class="quadrant_inputs" id="q4_inputs">
-								<button type="submit" class="input_button" value="SQ" title="Display Question">SQ</button>
-								<button type="submit" class="input_button" value="SR" title="Response to Instructor">SR</button>
-								<button type="submit" class="input_button" value="WC" title="Response to Student">WC</button>
-								<button type="submit" class="input_button" value="PrD" title="Make Prediction">PrD</button>
-							</div>
-						</div>
-						<div class="quadrant" id="q5" onmouseover="showEventInputs(this)" onmouseout="hideEventInputs(this)">
-							<div id="title5">5</div>
-							<div class="quadrant_inputs" id="q5_inputs">
-								<button type="submit" class="input_button" value="SQ" title="Display Question">SQ</button>
-								<button type="submit" class="input_button" value="SR" title="Response to Instructor">SR</button>
-								<button type="submit" class="input_button" value="WC" title="Response to Student">WC</button>
-								<button type="submit" class="input_button" value="PrD" title="Make Prediction">PrD</button>
-							</div>
-						</div>
-						<div class="quadrant" id="q6" onmouseover="showEventInputs(this)" onmouseout="hideEventInputs(this)">
-							<div id="title6">6</div>
-							<div class="quadrant_inputs" id="q6_inputs">
-								<button type="submit" class="input_button" value="SQ" title="Display Question">SQ</button>
-								<button type="submit" class="input_button" value="SR" title="Response to Instructor">SR</button>
-								<button type="submit" class="input_button" value="WC" title="Response to Student">WC</button>
-								<button type="submit" class="input_button" value="PrD" title="Make Prediction">PrD</button>
-							</div>
-						</div>
-						</form>
-					</div>
-					<div class="start_end_buttons">
-						<button type="button" id="start_button" onclick="start()">Start Observation</button>
-						<button type="button" id="end_button" onclick="end()">End Observation</button>
-					</div>
-				</div>
+			<div class="header">Feedback</div>
+			<div id="feedback_container"></div>
+		</div>
+		
+		<!-- MIDDLE DIV: beginning -->
+		<!-- Contains classroom mapping, and various input divisions -->
+		<div class="middle">
+			<!-- TOP PART OF MIDDLE: beginning -->
+			<div class="top_middle">
+				<!-- ACTIVITIES/EVENTS DIV: beginning -->
 				<div class="ae_inputs">
 					<div class="Student_Activities">
 						<div class="header">Student Activities</div>
 						<form id="student_activities_form" target="dump_data_frame">
-						<select name="student_activities_select" id="student_activities_select" onchange="testSubmit(this)">
+						<select name="student_activities_select" id="student_activities_select" onchange="aeSubmit(this)">
 							<option disabled selected value> -- select an option -- </option>
 				        	<option value="SGW" title="Small Group Work">SGW</option>
 				        	<option value="GD" title="Group Discussion">GD</option>
@@ -91,7 +39,7 @@
 					<div class="Instructor_Activities">
 						<div class="header">Instructor Activities</div>
 						<form id="instructor_activities_form" target="dump_data_frame">
-						<select name="instructor_activities_select" id="instructor_activities_select" onchange="showSubSelectMenu()">
+						<select name="instructor_activities_select" id="instructor_activities_select" onchange="aeSubmit(this)">
 							<option disabled selected value> -- select an option -- </option>
 				        	<option value="L" title="Lecturing">L</option>
 				        	<option value="LW" title="Lecturing While Writing">LW</option>
@@ -103,7 +51,7 @@
 				        	<option value="AT" title="Administrative Task">AT</option>
 				        	<option value="ID" title="Idle">ID</option>
 				    	</select>
-				    	<select name="sub_menu" id="sub_menu" onchange="testSubmit(this)">
+				    	<select name="sub_menu" id="sub_menu" onchange="aeSubmit(this)">
 				    		<option disabled selected value> -- select an option -- </option>
 				        	<option value="1">1</option>
 				        	<option value="2">2</option>
@@ -115,24 +63,101 @@
 					<div class="Instructor_Events">
 						<div class="header">Instructor Events</div>
 						<form id="instructor_events_form" target="dump_data_frame">
-							<button type="submit" class="input_button" value="IRQ" title="Rhetorical Question">IRQ</button>
-							<button type="submit" class="input_button" value="IDQ" title="Display Question">IDQ</button>
-							<button type="submit" class="input_button" value="ICQ" title="Comprehension Question">ICQ</button>
-							<button type="submit" class="input_button" value="FUp" title="Provides Feedback">FUp</button>
+							<button type="submit" class="input_button" value="IRQ" title="Rhetorical Question" onclick="aeSubmit(this)">IRQ</button>
+							<button type="submit" class="input_button" value="IDQ" title="Display Question" onclick="aeSubmit(this)">IDQ</button>
+							<button type="submit" class="input_button" value="ICQ" title="Comprehension Question" onclick="aeSubmit(this)">ICQ</button>
+							<button type="submit" class="input_button" value="FUp" title="Provides Feedback" onclick="aeSubmit(this)">FUp</button>
 						</form>
 					</div>
 				</div>
+				<!-- ACTIVITIES/EVENTS DIV: end -->
 			</div>
-			<div class="bottom_left_side">
-				<div class="header">Feedback</div>
-				<div class="feedback_container">Hi</div>
+			<!-- TOP MIDDLE: end -->
+			
+			<!-- BOTTOM MIDDLE: beginning -->
+			<div class="bottom_middle">
+				<!-- MAP AND BUTTONS DIV: beginning -->
+				<div class="map_and_buttons">
+					<!-- MAP DIV: beginning -->
+					<div class="classroom_mapping">
+						<form id="student_events_form" target="dump_data_frame">
+						<div class="quadrant" id="q1" onmouseover="showEventInputs(this)" onmouseout="hideEventInputs(this)">
+							<div id="title1">1</div>
+							<div class="quadrant_inputs" id="q1_inputs">
+								<button type="submit" class="input_button" value="q1-SQ" title="Display Question" onclick="aeSubmit(this)">SQ</button>
+								<button type="submit" class="input_button" value="q1-SR" title="Response to Instructor" onclick="aeSubmit(this)">SR</button>
+								<button type="submit" class="input_button" value="q1-WC" title="Response to Student" onclick="aeSubmit(this)">WC</button>
+								<button type="submit" class="input_button" value="q1-PrD" title="Make Prediction" onclick="aeSubmit(this)">PrD</button>
+							</div>
+						</div>
+						<div class="quadrant" id="q2" onmouseover="showEventInputs(this)" onmouseout="hideEventInputs(this)">
+							<div id="title2">2</div>
+							<div class="quadrant_inputs" id="q2_inputs">
+								<button type="submit" class="input_button" value="q2-SQ" title="Display Question" onclick="aeSubmit(this)">SQ</button>
+								<button type="submit" class="input_button" value="q2-SR" title="Response to Instructor" onclick="aeSubmit(this)">SR</button>
+								<button type="submit" class="input_button" value="q2-WC" title="Response to Student" onclick="aeSubmit(this)">WC</button>
+								<button type="submit" class="input_button" value="q2-PrD" title="Make Prediction" onclick="aeSubmit(this)">PrD</button>
+							</div>
+						</div>
+						<div class="quadrant" id="q3" onmouseover="showEventInputs(this)" onmouseout="hideEventInputs(this)">
+							<div id="title3">3</div>
+							<div class="quadrant_inputs" id="q3_inputs">
+								<button type="submit" class="input_button" value="q3-SQ" title="Display Question" onclick="aeSubmit(this)">SQ</button>
+								<button type="submit" class="input_button" value="q3-SR" title="Response to Instructor" onclick="aeSubmit(this)">SR</button>
+								<button type="submit" class="input_button" value="q3-WC" title="Response to Student" onclick="aeSubmit(this)">WC</button>
+								<button type="submit" class="input_button" value="q3-PrD" title="Make Prediction" onclick="aeSubmit(this)">PrD</button>
+							</div>
+						</div>
+						<div class="quadrant" id="q4" onmouseover="showEventInputs(this)" onmouseout="hideEventInputs(this)">
+							<div id="title4">4</div>
+							<div class="quadrant_inputs" id="q4_inputs">
+								<button type="submit" class="input_button" value="q4-SQ" title="Display Question" onclick="aeSubmit(this)">SQ</button>
+								<button type="submit" class="input_button" value="q4-SR" title="Response to Instructor" onclick="aeSubmit(this)">SR</button>
+								<button type="submit" class="input_button" value="q4-WC" title="Response to Student" onclick="aeSubmit(this)">WC</button>
+								<button type="submit" class="input_button" value="q4-PrD" title="Make Prediction" onclick="aeSubmit(this)">PrD</button>
+							</div>
+						</div>
+						<div class="quadrant" id="q5" onmouseover="showEventInputs(this)" onmouseout="hideEventInputs(this)">
+							<div id="title5">5</div>
+							<div class="quadrant_inputs" id="q5_inputs">
+								<button type="submit" class="input_button" value="q5-SQ" title="Display Question" onclick="aeSubmit(this)">SQ</button>
+								<button type="submit" class="input_button" value="q5-SR" title="Response to Instructor" onclick="aeSubmit(this)">SR</button>
+								<button type="submit" class="input_button" value="q5-WC" title="Response to Student" onclick="aeSubmit(this)">WC</button>
+								<button type="submit" class="input_button" value="q5-PrD" title="Make Prediction" onclick="aeSubmit(this)">PrD</button>
+							</div>
+						</div>
+						<div class="quadrant" id="q6" onmouseover="showEventInputs(this)" onmouseout="hideEventInputs(this)">
+							<div id="title6">6</div>
+							<div class="quadrant_inputs" id="q6_inputs">
+								<button type="submit" class="input_button" value="q6-SQ" title="Display Question" onclick="aeSubmit(this)">SQ</button>
+								<button type="submit" class="input_button" value="q6-SR" title="Response to Instructor" onclick="aeSubmit(this)">SR</button>
+								<button type="submit" class="input_button" value="q6-WC" title="Response to Student" onclick="aeSubmit(this)">WC</button>
+								<button type="submit" class="input_button" value="q6-PrD" title="Make Prediction" onclick="aeSubmit(this)">PrD</button>
+							</div>
+						</div>
+						</form>
+					</div>
+					<!-- MAP DIV: end -->
+					<!-- BUTTONS DIV: beginning -->
+					<!-- Contains start and end buttons -->
+					<div class="start_end_buttons">
+						<button type="button" id="start_button" onclick="start()">Start Observation</button>
+						<button type="button" id="end_button" onclick="end()">End Observation</button>
+					</div>
+					<!-- BUTTONS DIV: end -->
+				</div>
+				<!-- MAP AND BUTTONS DIV: end -->
 			</div>
+			<!-- BOTTOM MIDDLE DIV: end -->
 		</div>
+		<!-- MIDDLE DIV: end -->
 		
+		<!-- RIGHT SIDE: beginning -->
+		<!-- Contains interval reading inputs and timer -->
 		<div class="right_side">
 			<div class="header">Interval Readings</div>
-			<div class="interval_timer">x time before next reading</div>
-			<form id="interval_readings_form" target="data_dump_frame">
+			<div id="interval_timer"></div>
+			<form id="interval_readings_form" target="dump_data_frame">
 			<div id="Pedagogical_Strategies">
 				<div class="subheader">Pedagogical Strategies</div>
 				<ul class="checkbox-grid">
@@ -171,5 +196,6 @@
 			</form>
 		</div>
 	</div>
+	<!-- RIGHT SIDE END -->
 </body>
 </html>

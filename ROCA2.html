@@ -80,9 +80,19 @@
 				<div class="map_and_buttons">
 					<!-- MAP DIV: beginning -->
 					<div class="classroom_mapping">
-						<form id="student_events_form" target="dump_data_frame">
-						<div class="quadrant" id="q1" onmouseover="showEventInputs(this)" onmouseout="hideEventInputs(this)">
-							<div id="title1">1</div>
+						<form autocomplete="off" id="student_events_form" target="dump_data_frame">
+						<div class="quadrant" id="q1" onmouseover="showEventInputs('q1')" onmouseout="hideEventInputs('q1')">
+							<div class="quad_num" id="q1_title">1</div>
+							<!-- Input for number of students; repeated for all 6 quadrants -->
+							<!-- Default should be max # of seats in the quadrant -->
+							<div class="increment_stud" id="inc_stud1">
+								<!-- Increases # of students -->
+								<button type="button" class="inc_button" id="q1_plus" onclick="incStudent('test1')">+</button>
+								<!-- Displays # of students/manual type input -->
+								<input type="text" name="test" class="inS_text" id="test1" onkeypress="handle(event)">
+								<!-- Decreases # of students -->
+								<button type="button" class="inc_button" id="q1_min" onclick="decStudent('test1')">-</button>
+							</div>
 							<div class="quadrant_inputs" id="q1_inputs">
 								<button type="submit" class="input_button" value="q1-SQ" title="Display Question" onclick="aeSubmit(this)">SQ</button>
 								<button type="submit" class="input_button" value="q1-SR" title="Response to Instructor" onclick="aeSubmit(this)">SR</button>
@@ -90,8 +100,16 @@
 								<button type="submit" class="input_button" value="q1-PrD" title="Make Prediction" onclick="aeSubmit(this)">PrD</button>
 							</div>
 						</div>
-						<div class="quadrant" id="q2" onmouseover="showEventInputs(this)" onmouseout="hideEventInputs(this)">
-							<div id="title2">2</div>
+						<div class="quadrant" id="q2" onmouseover="showEventInputs('q2')" onmouseout="hideEventInputs('q2')">
+							<div class="quad_num" id="q2_title">2</div>
+							<div class="increment_stud" id="inc_stud2">
+								<!-- Increases # of students -->
+								<button type="button" class="inc_button" id="q2_plus" onclick="incStudent('test2')">+</button>
+								<!-- Displays # of students/manual type input -->
+								<input type="text" name="test" class="inS_text" id="test2" onkeypress="handle(event)">
+								<!-- Decreases # of students -->
+								<button type="button" class="inc_button" id="q2_min" onclick="decStudent('test2')">-</button>
+							</div>
 							<div class="quadrant_inputs" id="q2_inputs">
 								<button type="submit" class="input_button" value="q2-SQ" title="Display Question" onclick="aeSubmit(this)">SQ</button>
 								<button type="submit" class="input_button" value="q2-SR" title="Response to Instructor" onclick="aeSubmit(this)">SR</button>
@@ -99,8 +117,16 @@
 								<button type="submit" class="input_button" value="q2-PrD" title="Make Prediction" onclick="aeSubmit(this)">PrD</button>
 							</div>
 						</div>
-						<div class="quadrant" id="q3" onmouseover="showEventInputs(this)" onmouseout="hideEventInputs(this)">
-							<div id="title3">3</div>
+						<div class="quadrant" id="q3" onmouseover="showEventInputs('q3')" onmouseout="hideEventInputs('q3')">
+							<div class="quad_num" id="q3_title">3</div>
+							<div class="increment_stud" id="inc_stud3">
+								<!-- Increases # of students -->
+								<button type="button" class="inc_button" id="q3_plus" onclick="incStudent('test3')">+</button>
+								<!-- Displays # of students/manual type input -->
+								<input type="text" name="test" class="inS_text" id="test3" onkeypress="handle(event)">
+								<!-- Decreases # of students -->
+								<button type="button" class="inc_button" id="q3_min" onclick="decStudent('test3')">-</button>
+							</div>
 							<div class="quadrant_inputs" id="q3_inputs">
 								<button type="submit" class="input_button" value="q3-SQ" title="Display Question" onclick="aeSubmit(this)">SQ</button>
 								<button type="submit" class="input_button" value="q3-SR" title="Response to Instructor" onclick="aeSubmit(this)">SR</button>
@@ -108,8 +134,16 @@
 								<button type="submit" class="input_button" value="q3-PrD" title="Make Prediction" onclick="aeSubmit(this)">PrD</button>
 							</div>
 						</div>
-						<div class="quadrant" id="q4" onmouseover="showEventInputs(this)" onmouseout="hideEventInputs(this)">
-							<div id="title4">4</div>
+						<div class="quadrant" id="q4" onmouseover="showEventInputs('q4')" onmouseout="hideEventInputs('q4')">
+							<div class="quad_num" id="q4_title">4</div>
+							<div class="increment_stud" id="inc_stud4">
+								<!-- Increases # of students -->
+								<button type="button" class="inc_button" id="q4_plus" onclick="incStudent('test4')">+</button>
+								<!-- Displays # of students/manual type input -->
+								<input type="text" name="test" class="inS_text" id="test4" onkeypress="handle(event)">
+								<!-- Decreases # of students -->
+								<button type="button" class="inc_button" id="q4_min" onclick="decStudent('test4')">-</button>
+							</div>
 							<div class="quadrant_inputs" id="q4_inputs">
 								<button type="submit" class="input_button" value="q4-SQ" title="Display Question" onclick="aeSubmit(this)">SQ</button>
 								<button type="submit" class="input_button" value="q4-SR" title="Response to Instructor" onclick="aeSubmit(this)">SR</button>
@@ -117,8 +151,16 @@
 								<button type="submit" class="input_button" value="q4-PrD" title="Make Prediction" onclick="aeSubmit(this)">PrD</button>
 							</div>
 						</div>
-						<div class="quadrant" id="q5" onmouseover="showEventInputs(this)" onmouseout="hideEventInputs(this)">
-							<div id="title5">5</div>
+						<div class="quadrant" id="q5" onmouseover="showEventInputs('q5')" onmouseout="hideEventInputs('q5')">
+							<div class="quad_num" id="q5_title">5</div>
+							<div class="increment_stud" id="inc_stud5">
+								<!-- Increases # of students -->
+								<button type="button" class="inc_button" id="q5_plus" onclick="incStudent('test5')">+</button>
+								<!-- Displays # of students/manual type input -->
+								<input type="text" name="test" class="inS_text" id="test5" onkeypress="handle(event)">
+								<!-- Decreases # of students -->
+								<button type="button" class="inc_button" id="q5_min" onclick="decStudent('test5')">-</button>
+							</div>
 							<div class="quadrant_inputs" id="q5_inputs">
 								<button type="submit" class="input_button" value="q5-SQ" title="Display Question" onclick="aeSubmit(this)">SQ</button>
 								<button type="submit" class="input_button" value="q5-SR" title="Response to Instructor" onclick="aeSubmit(this)">SR</button>
@@ -126,8 +168,16 @@
 								<button type="submit" class="input_button" value="q5-PrD" title="Make Prediction" onclick="aeSubmit(this)">PrD</button>
 							</div>
 						</div>
-						<div class="quadrant" id="q6" onmouseover="showEventInputs(this)" onmouseout="hideEventInputs(this)">
-							<div id="title6">6</div>
+						<div class="quadrant" id="q6" onmouseover="showEventInputs('q6')" onmouseout="hideEventInputs('q6')">
+							<div class="quad_num" id="q6_title">6</div>
+							<div class="increment_stud" id="inc_stud6">
+								<!-- Increases # of students -->
+								<button type="button" class="inc_button" id="q6_plus" onclick="incStudent('test6')">+</button>
+								<!-- Displays # of students/manual type input -->
+								<input type="text" name="test" class="inS_text" id="test6" onkeypress="handle(event)">
+								<!-- Decreases # of students -->
+								<button type="button" class="inc_button" id="q6_min" onclick="decStudent('test6')">-</button>
+							</div>
 							<div class="quadrant_inputs" id="q6_inputs">
 								<button type="submit" class="input_button" value="q6-SQ" title="Display Question" onclick="aeSubmit(this)">SQ</button>
 								<button type="submit" class="input_button" value="q6-SR" title="Response to Instructor" onclick="aeSubmit(this)">SR</button>
@@ -141,8 +191,9 @@
 					<!-- BUTTONS DIV: beginning -->
 					<!-- Contains start and end buttons -->
 					<div class="start_end_buttons">
-						<button type="button" id="start_button" onclick="start()">Start Observation</button>
-						<button type="button" id="end_button" onclick="end()">End Observation</button>
+						<button type="button" id="reset_button" onclick="end()">Reset</button>
+						<button type="button" id="start_button" onclick="start()">Start</button>
+						<button type="button" id="end_button" onclick="end()">End</button>
 					</div>
 					<!-- BUTTONS DIV: end -->
 				</div>
@@ -156,44 +207,46 @@
 		<!-- Contains interval reading inputs and timer -->
 		<div class="right_side">
 			<div class="header">Interval Readings</div>
-			<div id="interval_timer"></div>
-			<form id="interval_readings_form" target="dump_data_frame">
-			<div id="Pedagogical_Strategies">
-				<div class="subheader">Pedagogical Strategies</div>
-				<ul class="checkbox-grid">
-				    <li><input type="checkbox" name="WP" value="WP" title="Working Out Problems"/><label for="WP">WP</label></li>
-				    <li><input type="checkbox" name="W" value="W" title="Writing"/><label for="W">W</label></li>
-				    <li><input type="checkbox" name="HUM" value="HUM" title="Humor"/><label for="HUM">HUM</label></li>
-				    <li><input type="checkbox" name="ANEX" value="ANEX" title="Anecdote/Example"/><label for="ANEX">ANEX</label></li>
-				    <li><input type="checkbox" name="ORG" value="ORG" title="Organization"/><label for="ORG">ORG</label></li>
-				    <li><input type="checkbox" name="EMP" value="EMP" title="Emphasis"/><label for="EMP">EMP</label></li>
-				    <li><input type="checkbox" name="IND" value="IND" title="Individualized Instruction"/><label for="IND">IND</label></li>
-				    <li><input type="checkbox" name="MG" value="MG" title="Guiding Student Work"/><label for="MG">MG</label></li>
-				    <li><input type="checkbox" name="MT" value="MT" title="Monitoring"/><label for="MT">MT</label></li>
-				    <li><input type="checkbox" name="iID" value="iID" title="Instructor Idle"/><label for="iID">iID</label></li>
-				</ul>
+			<div id="interval_content">
+				<div id="interval_timer"></div>
+				<form id="interval_readings_form" target="dump_data_frame">
+					<div id="Pedagogical_Strategies">
+						<div class="subheader">Pedagogical Strategies</div>
+						<ul class="checkbox-grid">
+						    <li><input type="checkbox" name="WP" value="WP" title="Working Out Problems"/><label for="WP">WP</label></li>
+						    <li><input type="checkbox" name="W" value="W" title="Writing"/><label for="W">W</label></li>
+						    <li><input type="checkbox" name="HUM" value="HUM" title="Humor"/><label for="HUM">HUM</label></li>
+						    <li><input type="checkbox" name="ANEX" value="ANEX" title="Anecdote/Example"/><label for="ANEX">ANEX</label></li>
+						    <li><input type="checkbox" name="ORG" value="ORG" title="Organization"/><label for="ORG">ORG</label></li>
+						    <li><input type="checkbox" name="EMP" value="EMP" title="Emphasis"/><label for="EMP">EMP</label></li>
+						    <li><input type="checkbox" name="IND" value="IND" title="Individualized Instruction"/><label for="IND">IND</label></li>
+						    <li><input type="checkbox" name="MG" value="MG" title="Guiding Student Work"/><label for="MG">MG</label></li>
+						    <li><input type="checkbox" name="MT" value="MT" title="Monitoring"/><label for="MT">MT</label></li>
+						    <li><input type="checkbox" name="iID" value="iID" title="Instructor Idle"/><label for="iID">iID</label></li>
+						</ul>
+					</div>
+					<div id="Instructional_Technologies">
+						<div class="subheader">Instructional Technologies</div>
+						<ul class="checkbox-grid">
+						    <li><input type="checkbox" name="DP" value="DP" title="Digital Projector"/><label for="DP">DP</label></li>
+						    <li><input type="checkbox" name="PP" value="PP" title="PowerPoint"/><label for="PP">PP</label></li>
+						    <li><input type="checkbox" name="DT" value="DT" title="Digital Display"/><label for="DT">DT</label></li>
+						    <li><input type="checkbox" name="CB" value="CB" title="Chalkboard/Whiteboard"/><label for="CB">CB</label></li>
+						    <li><input type="checkbox" name="M" value="M" title="Multimedia"/><label for="M">M</label></li>
+						    <li><input type="checkbox" name="WEB" value="WEB" title="Website"/><label for="WEB">WEB</label></li>
+						</ul>
+					</div>
+					<div id="Student_Engagement">
+						<div class="subheader">Student Engagement</div>
+						<ul class="checkbox-grid">
+						    <li><input type="checkbox" name="PI" value="PI" title="Peer Interactions"/><label for="PI">PI</label></li>
+						    <li><input type="checkbox" name="IT" value="IT" title="Individual Thinking"/><label for="IT">IT</label></li>
+						    <li><input type="checkbox" name="TN" value="TN" title="Taking Notes"/><label for="TN">TN</label></li>
+						    <li><input type="checkbox" name="LI" value="LI" title="Listening"/><label for="LI">LI</label></li>
+						</ul>
+					</div>
+				</form>
 			</div>
-			<div id="Instructional_Technologies">
-				<div class="subheader">Instructional Technologies</div>
-				<ul class="checkbox-grid">
-				    <li><input type="checkbox" name="DP" value="DP" title="Digital Projector"/><label for="DP">DP</label></li>
-				    <li><input type="checkbox" name="PP" value="PP" title="PowerPoint"/><label for="PP">PP</label></li>
-				    <li><input type="checkbox" name="DT" value="DT" title="Digital Display"/><label for="DT">DT</label></li>
-				    <li><input type="checkbox" name="CB" value="CB" title="Chalkboard/Whiteboard"/><label for="CB">CB</label></li>
-				    <li><input type="checkbox" name="M" value="M" title="Multimedia"/><label for="M">M</label></li>
-				    <li><input type="checkbox" name="WEB" value="WEB" title="Website"/><label for="WEB">WEB</label></li>
-				</ul>
-			</div>
-			<div id="Student_Engagement">
-				<div class="subheader">Student Engagement</div>
-				<ul class="checkbox-grid">
-				    <li><input type="checkbox" name="PI" value="PI" title="Peer Interactions"/><label for="PI">PI</label></li>
-				    <li><input type="checkbox" name="IT" value="IT" title="Individual Thinking"/><label for="IT">IT</label></li>
-				    <li><input type="checkbox" name="TN" value="TN" title="Taking Notes"/><label for="TN">TN</label></li>
-				    <li><input type="checkbox" name="LI" value="LI" title="Listening"/><label for="LI">LI</label></li>
-				</ul>
-			</div>
-			</form>
 		</div>
 	</div>
 	<!-- RIGHT SIDE END -->

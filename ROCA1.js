@@ -72,7 +72,9 @@ function start() {
 		}
 	}
 	
-	if(setInitStud){
+	/* Bypass the initial num of students check for sake of demonstration*/
+	setInitStud = true;
+	if(/*setInitStud*/true){
 		hasStarted = true;
 		itimer = 120;
 		
@@ -84,6 +86,11 @@ function start() {
 		inputs = document.getElementsByClassName("input_button");
 		for (var i = 0; i < inputs.length; i++) {
 		    inputs[i].disabled = false;
+		}
+		
+		inputs = document.getElementsByClassName("increment_stud");
+		for (var i = 0; i < inputs.length; i++) {
+		    inputs[i].style.display = "none";
 		}
 		
 		/* Enable the select menus */
@@ -200,9 +207,9 @@ function aeSubmit(x) {
 			numStudents[i].value = inSValues[i];
 		}
 		
-		if(x.id == "sub_menu"){
+		//if(x.id == "sub_menu"){
 			document.getElementById("sub_menu").style.display = "none";
-		}
+		//}
 	}
 	else {
 		showSubSelectMenu();
@@ -256,10 +263,6 @@ function showEventInputs(x) {
 }
 
 /* Hide inputs for classroom mapping when area is not hovered over*/
-function hideEventInputs() {
-	var x = document.getElementsByClassName("quadrant_inputs");
-}
-
 function hideEventInputs(x) {
 	if(x=="q1"){
 		document.getElementById("q1_inputs").style.display = "none";

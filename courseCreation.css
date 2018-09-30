@@ -1,0 +1,39 @@
+h3{
+	text-align: center;
+	padding-bottom: 1%;
+}
+
+input[type=text]{
+  border-radius: 3px;
+  color: #777;
+  margin-bottom: 2%;
+}
+
+input[type = submit]{
+  color: #290909;
+  padding: 4px 20px;
+  cursor: pointer;
+  border-width: 2px;
+  border-color: #290909;
+  font-size: .9em;
+  margin-left: 22%;
+  margin-top: 5%;
+}
+
+input[type = submit]:hover{
+  background-color: #363535;
+  color: #fff;
+  border-color: #363535;
+  text-align: center;
+}
+
+label{
+  font-family: 'Didact Gothic', sans-serif;
+  color: black;
+  font-size: 15px;
+  letter-spacing: .1em;
+  line-height: 1.5em;
+  font-weight: 400;
+  margin-top: 6%;
+}
+

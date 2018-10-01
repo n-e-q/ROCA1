@@ -1,6 +1,11 @@
 # ROCA1
 "Real-Time Observation Classroom Activities" tools. Currently being designed by a student research team at the University of Virginia under the direction of Michael Redwine and the School of Engineering.
 
+## Schedule Updates
+* **10/05 Meeting:** UPCOMING.
+* **09/21 Meeting:** Introduced ROCA-R team, explained details of ROCA1. See ppt under Collab -> Education Research -> Project Resources -> ROCA-R. Video on Panopto.
+* **09/07 Meeting:** Introduced entire ROCA team, basic premise of ROCA and work on it thus far. 
+
 ## Task Assignment
 
 ### Administrative Tasks

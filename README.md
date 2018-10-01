@@ -1,8 +1,11 @@
 # ROCA1
 Office of Educational Innovation @ SEAS, UVa
 
-To-Do:
-1. ( ) Propose changes in UX
-2. ( ) Link user input to database
-3. ( ) Pull activity/event names from database
-4. (x) Fix some logic with the submenu for instructor events
+ASSIGNMENT      | PERMISSION  | MOCKUP STATUS | CODE IMPLEMENTATION STATUS
+Course Selection| User        | M. Review     | Added to Repo
+User Creation   | Admin       |               |
+Course Creation | Admin       |               |
+Room Creation   | Admin       |               |
+Ob. Assignment  | Admin       |               |
+Code Bank Alt   | Admin       |               |
+Real Time Ob    | User        |               |

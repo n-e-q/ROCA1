@@ -1,5 +1,5 @@
 # ROCA1
-Office of Educational Innovation @ SEAS, UVa
+"Real-Time Observation Classroom Activities" tools. Currently being designed by a student research team at the University of Virginia under the direction of Michael Redwine and the School of Engineering.
 
 ## Task Assignment
 

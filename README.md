@@ -29,6 +29,7 @@
 ### User Tasks
 **1. Real-Time Observation**
   * Mockup undergoing revision
+  * Awaiting M. Review
   
 **2. Course Selection**
   * Need mockup

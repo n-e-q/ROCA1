@@ -17,13 +17,14 @@
   * Need mockup
   
 **3. Observation Assignment**
-  * Need mockup
+  * Mockup added to repo (non-code)
+  * Awaiting M. Review
   
 **4. User Creation**
   * Need mockup
   
 **5. Code Bank Alteration**
-  * Need mockup
+  * Currently implementing php functions
   
 ### User Tasks
 **1. Real-Time Observation**

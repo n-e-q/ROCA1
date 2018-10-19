@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>ROCA1 Observation Tool</title>
+	<link rel="stylesheet" href="ROCA1_user_observation.css">
+	<script type="text/javascript" src="ROCA1_user_observation.js"></script>
+</head>
+<body onload="setAllDefaultValues()">
+	<!-- Data from forms set to invisible iframe: WILL NEED TO CHANGE THIS LATER -->
+	<iframe name="dump_data_frame" id="dump_data_frame"></iframe>
+	
+	<div class="body_content">
+		<!-- BEGIN: left_side div -->
+		<!-- Contains classroom pic and majority of inputs -->
+		<div id="left_side">
+			<!-- BEGIN: top_left div -->
+			<!-- Contains back button and room name -->
+			<div id="top_left">
+				Back button and room name
+			</div>
+			<!-- BEGIN: classroom mapping -->
+			<div id="classroom_mapping">
+				<form autocomplete="off" id="student_events_form" target="dump_data_frame">
+					<div class="quadrant" id="q1" onmouseover="showEventInputs('q1')" onmouseout="hideEventInputs('q1')">
+						<div class="quad_num" id="q1_title">1</div>
+						<div class="quadrant_inputs" id="q1_inputs">
+							<button type="submit" class="input_button" value="q1-SQ" title="Display Question" onclick="aeSubmit(this)">SQ</button>
+							<button type="submit" class="input_button" value="q1-SR" title="Response to Instructor" onclick="aeSubmit(this)">SR</button>
+							<button type="submit" class="input_button" value="q1-WC" title="Response to Student" onclick="aeSubmit(this)">WC</button>
+							<button type="submit" class="input_button" value="q1-PrD" title="Make Prediction" onclick="aeSubmit(this)">PrD</button>
+						</div>
+						<!-- Input for number of students; repeated for all 6 quadrants -->
+						<!-- Default should be max # of seats in the quadrant -->
+						<div class="increment_stud" id="inc_stud1">
+							<!-- Increases # of students -->
+							<button type="button" class="inc_button" id="q1_plus" onclick="incStudent('test1')">+</button>
+							<!-- Displays # of students/manual type input -->
+							<input type="text" name="test" class="inS_text" id="test1" onkeypress="handle(event)">
+							<!-- Decreases # of students -->
+							<button type="button" class="inc_button" id="q1_min" onclick="decStudent('test1')">-</button>
+						</div>
+							
+					</div>
+					<div class="quadrant" id="q2" onmouseover="showEventInputs('q2')" onmouseout="hideEventInputs('q2')">
+						<div class="quad_num" id="q2_title">2</div>
+						
+						<div class="quadrant_inputs" id="q2_inputs">
+							<button type="submit" class="input_button" value="q2-SQ" title="Display Question" onclick="aeSubmit(this)">SQ</button>
+							<button type="submit" class="input_button" value="q2-SR" title="Response to Instructor" onclick="aeSubmit(this)">SR</button>
+							<button type="submit" class="input_button" value="q2-WC" title="Response to Student" onclick="aeSubmit(this)">WC</button>
+							<button type="submit" class="input_button" value="q2-PrD" title="Make Prediction" onclick="aeSubmit(this)">PrD</button>
+						</div>
+						<div class="increment_stud" id="inc_stud2">
+							<!-- Increases # of students -->
+							<button type="button" class="inc_button" id="q2_plus" onclick="incStudent('test2')">+</button>
+							<!-- Displays # of students/manual type input -->
+							<input type="text" name="test" class="inS_text" id="test2" onkeypress="handle(event)">
+							<!-- Decreases # of students -->
+							<button type="button" class="inc_button" id="q2_min" onclick="decStudent('test2')">-</button>
+						</div>
+					</div>
+					<div class="quadrant" id="q3" onmouseover="showEventInputs('q3')" onmouseout="hideEventInputs('q3')">
+						<div class="quad_num" id="q3_title">3</div>
+						
+						<div class="quadrant_inputs" id="q3_inputs">
+							<button type="submit" class="input_button" value="q3-SQ" title="Display Question" onclick="aeSubmit(this)">SQ</button>
+							<button type="submit" class="input_button" value="q3-SR" title="Response to Instructor" onclick="aeSubmit(this)">SR</button>
+							<button type="submit" class="input_button" value="q3-WC" title="Response to Student" onclick="aeSubmit(this)">WC</button>
+							<button type="submit" class="input_button" value="q3-PrD" title="Make Prediction" onclick="aeSubmit(this)">PrD</button>
+						</div>
+						<div class="increment_stud" id="inc_stud3">
+							<!-- Increases # of students -->
+							<button type="button" class="inc_button" id="q3_plus" onclick="incStudent('test3')">+</button>
+							<!-- Displays # of students/manual type input -->
+							<input type="text" name="test" class="inS_text" id="test3" onkeypress="handle(event)">
+							<!-- Decreases # of students -->
+							<button type="button" class="inc_button" id="q3_min" onclick="decStudent('test3')">-</button>
+						</div>
+					</div>
+					<div class="quadrant" id="q4" onmouseover="showEventInputs('q4')" onmouseout="hideEventInputs('q4')">
+						<div class="quad_num" id="q4_title">4</div>
+						
+						<div class="quadrant_inputs" id="q4_inputs">
+							<button type="submit" class="input_button" value="q4-SQ" title="Display Question" onclick="aeSubmit(this)">SQ</button>
+							<button type="submit" class="input_button" value="q4-SR" title="Response to Instructor" onclick="aeSubmit(this)">SR</button>
+							<button type="submit" class="input_button" value="q4-WC" title="Response to Student" onclick="aeSubmit(this)">WC</button>
+							<button type="submit" class="input_button" value="q4-PrD" title="Make Prediction" onclick="aeSubmit(this)">PrD</button>
+						</div>
+						<div class="increment_stud" id="inc_stud4">
+							<!-- Increases # of students -->
+							<button type="button" class="inc_button" id="q4_plus" onclick="incStudent('test4')">+</button>
+							<!-- Displays # of students/manual type input -->
+							<input type="text" name="test" class="inS_text" id="test4" onkeypress="handle(event)">
+							<!-- Decreases # of students -->
+							<button type="button" class="inc_button" id="q4_min" onclick="decStudent('test4')">-</button>
+						</div>
+					</div>
+					<div class="quadrant" id="q5" onmouseover="showEventInputs('q5')" onmouseout="hideEventInputs('q5')">
+						<div class="quad_num" id="q5_title">5</div>
+						
+						<div class="quadrant_inputs" id="q5_inputs">
+							<button type="submit" class="input_button" value="q5-SQ" title="Display Question" onclick="aeSubmit(this)">SQ</button>
+							<button type="submit" class="input_button" value="q5-SR" title="Response to Instructor" onclick="aeSubmit(this)">SR</button>
+							<button type="submit" class="input_button" value="q5-WC" title="Response to Student" onclick="aeSubmit(this)">WC</button>
+							<button type="submit" class="input_button" value="q5-PrD" title="Make Prediction" onclick="aeSubmit(this)">PrD</button>
+						</div>
+						<div class="increment_stud" id="inc_stud5">
+							<!-- Increases # of students -->
+							<button type="button" class="inc_button" id="q5_plus" onclick="incStudent('test5')">+</button>
+							<!-- Displays # of students/manual type input -->
+							<input type="text" name="test" class="inS_text" id="test5" onkeypress="handle(event)">
+							<!-- Decreases # of students -->
+							<button type="button" class="inc_button" id="q5_min" onclick="decStudent('test5')">-</button>
+						</div>
+					</div>
+					<div class="quadrant" id="q6" onmouseover="showEventInputs('q6')" onmouseout="hideEventInputs('q6')">
+						<div class="quad_num" id="q6_title">6</div>
+						
+						<div class="quadrant_inputs" id="q6_inputs">
+							<button type="submit" class="input_button" value="q6-SQ" title="Display Question" onclick="aeSubmit(this)">SQ</button>
+							<button type="submit" class="input_button" value="q6-SR" title="Response to Instructor" onclick="aeSubmit(this)">SR</button>
+							<button type="submit" class="input_button" value="q6-WC" title="Response to Student" onclick="aeSubmit(this)">WC</button>
+							<button type="submit" class="input_button" value="q6-PrD" title="Make Prediction" onclick="aeSubmit(this)">PrD</button>
+						</div>
+						<div class="increment_stud" id="inc_stud6">
+							<!-- Increases # of students -->
+							<button type="button" class="inc_button" id="q6_plus" onclick="incStudent('test6')">+</button>
+							<!-- Displays # of students/manual type input -->
+							<input type="text" name="test" class="inS_text" id="test6" onkeypress="handle(event)">
+							<!-- Decreases # of students -->
+							<button type="button" class="inc_button" id="q6_min" onclick="decStudent('test6')">-</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			
+			<div id="bottom_left">
+				Popups and buttons
+			</div>
+		</div>
+		<!-- END: left_side div -->
+		
+		<!-- BEGIN: right_side div -->
+		<!-- Contains interval reading form -->
+		<div id="right_side">
+			<form id="interval_readings_form" target="dump_data_frame">
+				<!-- Interval form category 1: Pedagogical Strategies -->
+				<div id="Pedagogical_Strategies">
+					<div class="subheader">Pedagogical Strategies</div>
+						<div class="checkbox-grid">
+							<label class="container" title="Working out problems">
+								<input type="checkbox">WP
+								<span class="checkmark"></span>
+							</label>
+									  
+							<label class="container">
+								<input type="checkbox">W
+								<span class="checkmark"></span>
+							</label>
+									  
+							<label class="container">
+								<input type="checkbox">HUM
+								<span class="checkmark"></span>
+						  	</label>
+						  
+						  	<label class="container">
+								<input type="checkbox">ANEX
+								<span class="checkmark"></span>
+						  	</label>
+						  	<label class="container">
+								<input type="checkbox">ORG
+								<span class="checkmark"></span>
+						  	</label> 		
+						  	<label class="container">
+								<input type="checkbox">EMP
+								<span class="checkmark"></span>
+						  	</label> 		
+						  	<label class="container">
+								<input type="checkbox">IND
+								<span class="checkmark"></span>
+						  	</label>
+						  	<label class="container">
+								<input type="checkbox">MG
+								<span class="checkmark"></span>
+						  	</label> 	
+						  	<label class="container">
+								<input type="checkbox">MT
+								<span class="checkmark"></span>
+						  	</label> 	
+						  	<label class="container">
+								<input type="checkbox">iID
+								<span class="checkmark"></span>
+						  	</label> 	 		
+						</div>
+				</div>
+				<!-- Interval form category 2: Instructional Technologies -->
+				<div id="Instructional Technologies">
+					<div class="subheader">Instructional Technologies</div>
+					<div class="checkbox-grid">
+						<label class="container" title="Working out problems">
+							<input type="checkbox">DP
+							<span class="checkmark"></span>
+						</label>
+						<label class="container" title="Working out problems">
+							<input type="checkbox">PP
+							<span class="checkmark"></span>
+						</label>
+						<label class="container" title="Working out problems">
+							<input type="checkbox">DT
+							<span class="checkmark"></span>
+						</label>
+						<label class="container" title="Working out problems">
+							<input type="checkbox">CB
+							<span class="checkmark"></span>
+						</label>
+						<label class="container" title="Working out problems">
+							<input type="checkbox">M
+							<span class="checkmark"></span>
+						</label>
+						<label class="container" title="Working out problems">
+							<input type="checkbox">WEB
+							<span class="checkmark"></span>
+						</label>
+					</div>
+				</div>
+				<!-- Interval form category 3: Student Engagement -->
+				<div id="Student Engagement">
+					<div class="subheader">Student Engagement</div>
+					<div class="checkbox-grid">
+						<label class="container" title="Working out problems">
+							<input type="checkbox">PI
+							<span class="checkmark"></span>
+						</label>
+						<label class="container" title="Working out problems">
+							<input type="checkbox">IT
+							<span class="checkmark"></span>
+						</label>
+						<label class="container" title="Working out problems">
+							<input type="checkbox">TN
+							<span class="checkmark"></span>
+						</label>
+						<label class="container" title="Working out problems">
+							<input type="checkbox">LI
+							<span class="checkmark"></span>
+						</label>
+					</div>
+				</div>
+			</form>
+		</div>
+		<!-- END: right_side div -->
+	</div>
+
+</body>
+</html>

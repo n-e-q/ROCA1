@@ -8,7 +8,10 @@
 * **09/21 Meeting:** Introduced ROCA-R team, explained details of ROCA1. See ppt under Collab -> Education Research -> Project Resources -> ROCA-R. Video on Panopto.
 * **09/07 Meeting:** Introduced entire ROCA team, basic premise of ROCA and work on it thus far. 
 
-## Task Assignment
+## Main ToDo
+**1. Front-end of observation tool**
+**2. Course selection page**
+**3. Admin main portal**
 
 ### Administrative Tasks
 **1. Course Creation**
@@ -37,7 +40,8 @@
   * Need mockup
   
 ## Style Guide
-  
+See Google doc
+
 ## Additional Notes
 - Make a single page containing all of the administrative tasks?
 - Discuss ideas to transfer data between app and database

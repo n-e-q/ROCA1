@@ -4,6 +4,8 @@
 	<meta charset="ISO-8859-1">
 	<title>ROCA1 Observation Tool</title>
 	<link rel="stylesheet" href="ROCA1_user_observation.css">
+	<link rel="stylesheet" href="themify-icons.css">
+	<link rel="stylesheet" href="fonts/stylesheet.css">
 	<script type="text/javascript" src="ROCA1_user_observation.js"></script>
 </head>
 <body onload="setAllDefaultValues()">
@@ -17,7 +19,7 @@
 			<!-- BEGIN: top_left div -->
 			<!-- Contains back button and room name -->
 			<div id="top_left">
-				Back button and room name
+				<h1><a hef="http://google.com" style=" vertical-align: middle"><span class="ti-arrow-left" ></span></a>&nbsp;&nbsp;&nbsp;MEC 305</h1>
 			</div>
 			<!-- BEGIN: classroom mapping -->
 			<div id="classroom_mapping">
@@ -136,7 +138,12 @@
 			</div>
 			
 			<div id="bottom_left">
-				Popups and buttons
+				<button class="button">student activities</button>
+				<button class="button">instructor activities</button>
+				<button class="button">instructor events</button>
+				<button class="circularButton"><span class="ti-reload" style="vertical-align: -2px"></span></button>
+				<button class="circularButton"><span class="ti-control-play" style="vertical-align: -2px"></span></button>
+				<button class="circularButton"><span class="ti-comment-alt" style="vertical-align: middle"></span></button>
 			</div>
 		</div>
 		<!-- END: left_side div -->
@@ -147,101 +154,101 @@
 			<form id="interval_readings_form" target="dump_data_frame">
 				<!-- Interval form category 1: Pedagogical Strategies -->
 				<div id="Pedagogical_Strategies">
-					<div class="subheader">Pedagogical Strategies</div>
+					<div class="subheader">What's the instructor doing</div>
 						<div class="checkbox-grid">
-							<label class="container" title="Working out problems">
-								<input type="checkbox">WP
+							<label class="container" title="WP">
+								<input type="checkbox">Working out problems
 								<span class="checkmark"></span>
 							</label>
 									  
-							<label class="container">
-								<input type="checkbox">W
+							<label class="container" title="W">
+								<input type="checkbox">Writing
 								<span class="checkmark"></span>
 							</label>
 									  
-							<label class="container">
-								<input type="checkbox">HUM
+							<label class="container" title="HUM">
+								<input type="checkbox">Being humorous
 								<span class="checkmark"></span>
 						  	</label>
 						  
-						  	<label class="container">
-								<input type="checkbox">ANEX
+						  	<label class="container" title="ANEX">
+								<input type="checkbox">Sharing anecdote/example
 								<span class="checkmark"></span>
 						  	</label>
-						  	<label class="container">
-								<input type="checkbox">ORG
+						  	<label class="container" title="ORG">
+								<input type="checkbox">Organizing
 								<span class="checkmark"></span>
 						  	</label> 		
-						  	<label class="container">
-								<input type="checkbox">EMP
+						  	<label class="container" title="EMP">
+								<input type="checkbox">Emphasizing
 								<span class="checkmark"></span>
 						  	</label> 		
-						  	<label class="container">
-								<input type="checkbox">IND
+						  	<label class="container" title="IND">
+								<input type="checkbox">Individualized help
 								<span class="checkmark"></span>
 						  	</label>
-						  	<label class="container">
-								<input type="checkbox">MG
+						  	<label class="container" title="MG">
+								<input type="checkbox">Guiding student work
 								<span class="checkmark"></span>
 						  	</label> 	
-						  	<label class="container">
-								<input type="checkbox">MT
+						  	<label class="container" title="MT">
+								<input type="checkbox">Monitoring
 								<span class="checkmark"></span>
 						  	</label> 	
-						  	<label class="container">
-								<input type="checkbox">iID
+						  	<label class="container" title="iID">
+								<input type="checkbox">Idle
 								<span class="checkmark"></span>
 						  	</label> 	 		
 						</div>
 				</div>
 				<!-- Interval form category 2: Instructional Technologies -->
 				<div id="Instructional Technologies">
-					<div class="subheader">Instructional Technologies</div>
+					<div class="subheader">What's the instructor using</div>
 					<div class="checkbox-grid">
-						<label class="container" title="Working out problems">
-							<input type="checkbox">DP
+						<label class="container" title="DP">
+							<input type="checkbox">Projector
 							<span class="checkmark"></span>
 						</label>
-						<label class="container" title="Working out problems">
-							<input type="checkbox">PP
+						<label class="container" title="PP">
+							<input type="checkbox">Powerpoint
 							<span class="checkmark"></span>
 						</label>
-						<label class="container" title="Working out problems">
-							<input type="checkbox">DT
+						<label class="container" title="DT">
+							<input type="checkbox">Digital display
 							<span class="checkmark"></span>
 						</label>
-						<label class="container" title="Working out problems">
-							<input type="checkbox">CB
+						<label class="container" title="CB">
+							<input type="checkbox">Board
 							<span class="checkmark"></span>
 						</label>
-						<label class="container" title="Working out problems">
-							<input type="checkbox">M
+						<label class="container" title="M">
+							<input type="checkbox">Multimedia
 							<span class="checkmark"></span>
 						</label>
-						<label class="container" title="Working out problems">
-							<input type="checkbox">WEB
+						<label class="container" title="WEB">
+							<input type="checkbox">Website
 							<span class="checkmark"></span>
 						</label>
 					</div>
 				</div>
 				<!-- Interval form category 3: Student Engagement -->
 				<div id="Student Engagement">
-					<div class="subheader">Student Engagement</div>
+					<div class="subheader">What're students doing</div>
 					<div class="checkbox-grid">
-						<label class="container" title="Working out problems">
-							<input type="checkbox">PI
+						<label class="container" title="PI">
+							<input type="checkbox">Talking to peers
 							<span class="checkmark"></span>
 						</label>
-						<label class="container" title="Working out problems">
-							<input type="checkbox">IT
+						<label class="container" title="IT">
+							<input type="checkbox">Thinking
 							<span class="checkmark"></span>
 						</label>
-						<label class="container" title="Working out problems">
-							<input type="checkbox">TN
+						<label class="container" title="TN">
+							<input type="checkbox">Taking notes
 							<span class="checkmark"></span>
 						</label>
-						<label class="container" title="Working out problems">
-							<input type="checkbox">LI
+						<label class="container" title="LI">
+							<input type="checkbox">Listening
 							<span class="checkmark"></span>
 						</label>
 					</div>

@@ -1,5 +1,4 @@
 @charset "ISO-8859-1";
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 html {
 	height: 100vh;
 	width: 100vw;
@@ -12,7 +11,11 @@ html {
 body {
 	height: 50%;
 	flex-grow: 1;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'product sans', sans-serif;
+	padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
 }
 
 
@@ -31,6 +34,10 @@ body {
 	grid-gap: 3%;
 }
 
+#top_left {
+	padding-left: 30px;
+}
+
 #left_side > * {
 	
 }
@@ -40,23 +47,31 @@ body {
 	flex-direction: column;
 }
 
+#bottom_left {
+	margin: auto;
+
+}
+
 #classroom_mapping {
 	background-image: url("MEC-341.jpg");
 	background-size: 100% 100%;
+	
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .quadrant {
-	border: solid; 
-	border-color: #f2f2f2;
-	border-width: 1px;
+	/*
+	border-style: solid;
+	border-color: transparent;
+	border-width: 2px;
+	*/
 }
 
 .quad_num {
 	text-align: left;
 	font-weight: bold;
     font-size: xx-large;
-    color: #000000;
+    color: #ffffff;
     flex-grow: 1;
 }
 
@@ -109,9 +124,9 @@ body {
 
 .checkbox-grid {
 	display: grid;
-	grid-template-columns: 45% 45%;
-	padding-left: 20%;
-	padding-top: 3%;	
+	grid-template-columns: 100%;
+	padding-left: 25%;
+	padding-top: 5%;	
 }
 
 .container {
@@ -120,7 +135,7 @@ body {
 	padding-left: 35px;
 	margin-bottom: 12px;
 	cursor: pointer;
-	font-size: 12px;
+	font-size: medium;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -141,9 +156,13 @@ body {
 	position: absolute;
 	top: 0;
 	left: 0;
+	border-radius: 50%;
 	height: 15px;
 	width: 15px;
-	background-color: #ccc;
+	background-color: #ffffff;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #232323;
   }
   
   /* On mouse-over, add a grey background color */
@@ -196,11 +215,49 @@ body {
 
 .subheader {
 	font-weight: bold;
-	font-size: large;
+	font-size: x-large;
 	color: #000000;
-	text-align: center;
+	padding-left: 22%;
 }
 
 #dump_data_frame {
 	display: none;
+}
+
+.button {
+	width: auto;
+	padding-right: 15px;
+	padding-left: 15px;
+	font-size: large;
+	font-family: 'product sans', sans-serif;
+	color: #ffffff;
+	background-color: #232323;
+    cursor: pointer;
+    margin: 5px;
+	height: 55px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.20);
+	border-radius: 100px;
+	
+}
+
+.circularButton {
+	width: auto;
+	padding-right: 15px;
+	padding-left: 15px;
+	font-size: large;
+	font-family: 'product sans', sans-serif;
+	color: #ffffff;
+	background-color: #232323;
+    cursor: pointer;
+    margin: 5px;
+	height: 55px;
+	width: 55px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.20);
+	border-radius: 100px;
 }

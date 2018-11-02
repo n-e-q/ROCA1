@@ -1,8 +1,17 @@
+/*@font-face {
+font-family: "Harabara Bold";
+src: url("css/fonts/Harabara.eot");
+src: 
+url("product-sans.woff") format("woff"),
+url("css/fonts/Harabara.otf") format("opentype"),
+url("css/fonts/Harabara.svg#filename") format("svg");
+}
+*/
 div {
     width: 40%;
-    border: 6px solid black;
-    /*padding: 2px;*/
-    /*margin: 25px;*/
+    /*border: 6px solid black;*/
+    padding: 2px;
+    margin: 25px;
     text-align: center;
     vertical-align: middle;
     background: grey;

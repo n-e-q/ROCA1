@@ -1,0 +1,23 @@
+div {
+    width: 40%;
+    border: 6px solid black;
+    /*padding: 2px;*/
+    /*margin: 25px;*/
+    text-align: center;
+    vertical-align: middle;
+    background: grey;
+    border-radius: 25px;
+}
+
+p {
+	color: white;
+}
+
+h2{
+	font-size: 30px;
+}
+
+h3{
+	font-size: width:100%;
+}
+

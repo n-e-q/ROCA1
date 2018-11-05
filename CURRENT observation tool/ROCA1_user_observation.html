@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="ISO-8859-1">
-	<title>ROCA1 Observation Tool</title>
+	<title>Observation</title>
 	<link rel="stylesheet" href="ROCA1_user_observation.css">
 	<link rel="stylesheet" href="themify-icons.css">
 	<link rel="stylesheet" href="fonts/stylesheet.css">
@@ -138,12 +139,64 @@
 			</div>
 			
 			<div id="bottom_left">
+
+				<div class="dropdown">
 				<button class="button">student activities</button>
+				<div class="dropdown-content">
+						<a>Small group work</a>
+						<a>Group discussion</a>
+						<a>Student presentation</a>
+						<a>Deskwork</a>
+						</div>
+				</div>
+
+				<div class="dropdown">
 				<button class="button">instructor activities</button>
+				<div class="dropdown-content">
+						<a>Lecturing</a>
+						<a>Lecturing while writing</a>
+						<a>Lecturing from pre-made visuals</a>
+						<a>Lecturing with demonstration of phenomena</a>
+						<a>Interactive lecture</a>
+						<a>Multimedia</a>
+						<a>Clicker question</a>
+						<a>Administrative task</a>
+						<a>Idle</a>
+						</div>
+				</div>
+
+				<div class="dropdown">
 				<button class="button">instructor events</button>
-				<button class="circularButton"><span class="ti-reload" style="vertical-align: -2px"></span></button>
-				<button class="circularButton"><span class="ti-control-play" style="vertical-align: -2px"></span></button>
-				<button class="circularButton"><span class="ti-comment-alt" style="vertical-align: middle"></span></button>
+				<div class="dropdown-content">
+						<a>Rhetorical question</a>
+						<a>Display question</a>
+						<a>Comprehension question</a>
+						<a>Provides feedback</a>
+						</div>
+				</div>
+
+				<button class="circularButton" title="Reset" type="button" id="reset_button" onclick="end()"><span class="ti-reload" style="vertical-align: -2px"></span></button>
+				<button class="circularButton" title="Start" type="button" id="start_button" onclick="start()"><span class="ti-control-play" style="vertical-align: -2px"></span></button>
+				<button class="circularButton" title="Feed" type="button" id="feed_button" onclick="openFeed()"><span class="ti-comment-alt" style="vertical-align: -2px"></span></button>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Timer goes here (need to link to javascript)
+
+				<div id="feed" class="modal">
+
+					<!-- Modal content -->
+					<div class="modal-content">
+					  <div class="modal-header">
+						<span class="close"></span>
+						Feedback
+					  </div>
+					  <div class="modal-body">
+						Observation has... not started (and won't until Annie saves the day with her JavaScript skills)
+					  </div>
+					</div>
+				  
+				  </div>
+
+
+
 			</div>
 		</div>
 		<!-- END: left_side div -->

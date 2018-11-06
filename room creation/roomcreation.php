@@ -1,4 +1,8 @@
 <!-- Room Creation Form -->
+<!-- TO DO:
+  - resize the image to constant Size
+  - dynamic coordinate system: when user types into the field, create a box over the dimension the user want
+-->
 <!DOCTYPE html>
 <html>
   <head>
@@ -6,10 +10,11 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <!-- <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet"> -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stylesheet.css">
+
     <title>Room Creation</title>
   </head>
   <body>
-    <!--  <main>-->
     <h1>Room Creation</h1>
     <h3>To create a room, fill in the corresponding information below.</h3>
     <form action="roomcreated2.php" method="POST" enctype="multipart/form-data"> <!--// action to some .php
@@ -19,16 +24,16 @@
           <input type = "text" name="Room" placeholder = "Room Name" />
         </p>
         <p>
-          <label>Seating Capacity:</label><br >
+          <label>Seating Capacity:</lable><br >
           <input type = "text" name="Size" placeholder = "#Seating Capacity" />
         </p>
         <p>Upload the image of the classroom.</p>
         <p>
-        <input type="file" name="file" accept="image/*">
+        <input type="file" name="file" accept="image/*" onchange="readURL(this)" >
         </p>
+
         <input type="submit" name="submit" value="Next >> ">
       </form>
-    <!--  </main>-->
 
   </body>
 </html>

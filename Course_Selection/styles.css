@@ -1,15 +1,5 @@
-/*@font-face {
-font-family: "Harabara Bold";
-src: url("css/fonts/Harabara.eot");
-src: 
-url("product-sans.woff") format("woff"),
-url("css/fonts/Harabara.otf") format("opentype"),
-url("css/fonts/Harabara.svg#filename") format("svg");
-}
-*/
 div {
     width: 40%;
-    /*border: 6px solid black;*/
     padding: 2px;
     margin: 25px;
     text-align: center;
@@ -18,15 +8,34 @@ div {
     border-radius: 25px;
 }
 
+.addition{
+  width: 40%;
+  padding: 2px;
+  margin: 25px;
+  text-align: center;
+  vertical-align: middle;
+  background: rgba(128,128,128,0.3);
+  border-radius: 25px;
+}
+
 p {
-	color: white;
+    color: white;
+}
+
+h1{
+  font-size: 50px;
 }
 
 h2{
-	font-size: 30px;
+    font-size: 30px;
 }
 
 h3{
-	font-size: width:100%;
+    font-size: width:100%;
 }
 
+img{
+  width: 3%;
+  margin-left: 30px;
+  margin-right: 20px;
+}

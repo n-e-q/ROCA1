@@ -1,24 +1,12 @@
-<html>
-<head>
-  <meta charset="utf-8">
-  <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"> -->
-  <!-- <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet"> -->
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="stylesheet.css">
-
-  <!-- <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
-  <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-  <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script> -->
-  <title>Room Creation Success!</title>
-</head>
-<body>
   <?php
   if (isset($_POST["submit"])) {
     echo "Your Room was Created!";
   }
   else {
     if (isset($_POST["Box1"])) { // first preview button
-      echo "Box1";
+		$_array=$_POST["coord"];
+		header("Location: roomcreated2.php?coord=1&0=".$_array[0]."&1=".$_array[1]."&2=".$_array[2]);
+//      echo "Box1 is ".$_array[0].",".$_array[1].",".$_array[2];
     }
     else if (isset($_POST["Box2"])) {
       echo "Box2";
@@ -37,4 +25,3 @@
     }
  }
 ?>
-</body>

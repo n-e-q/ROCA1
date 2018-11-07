@@ -131,13 +131,37 @@ if (isset($_POST["submit"])) {
     <p>Box 1</p>
     <input type = "text"
            id = "myText"
-           placeholder= "Wid"/>
+           name = "coord[]"
+<?php
+	if ($_GET["coord"]==1) {
+		echo 'value= "'.$_GET["0"].'"';
+	} else {
+		echo 'placeholder= "Wid"';
+	}
+?>
+           />
     <input type = "text"
            id = "myText"
-           placeholder = "Top Right: (  ,  )" />
+           name = "coord[]"
+<?php
+	if ($_GET["coord"]==1) {
+		echo 'value= "'.$_GET["1"].'"';
+	} else {
+		echo 'placeholder = "Top Right: (  ,  )"';
+	}
+?>
+            />
     <input type = "text"
            id = "myText"
-           placeholder = "Bottom Right: (  ,  )" />
+           name = "coord[]"
+<?php
+	if ($_GET["coord"]==1) {
+		echo 'value= "'.$_GET["1"].'"';
+	} else {
+		echo 'placeholder = "Bottom Right: (  ,  )"';
+	}
+?>
+           />
     <input type="submit" name="Box1" value="Preview">
 
   </div>
@@ -145,12 +169,15 @@ if (isset($_POST["submit"])) {
     <p>Box 2</p>
     <input type = "text"
            id = "myText"
+           name = "coord[]"
            placeholder = "Top Left: (  ,  )"/>
     <input type = "text"
            id = "myText"
+           name = "coord[]"
            placeholder = "Top Right: (  ,  )" />
     <input type = "text"
            id = "myText"
+           name = "coord[]"
            placeholder = "Bottom Right: (  ,  )" />
     <input type="submit" name="Box2" value="Preview">
   </div>
@@ -158,12 +185,15 @@ if (isset($_POST["submit"])) {
     <p>Box 3</p>
     <input type = "text"
            id = "myText"
+           name = "coord[]"
            placeholder = "Top Left: (  ,  )"/>
     <input type = "text"
            id = "myText"
+           name = "coord[]"
            placeholder = "Top Right: (  ,  )" />
     <input type = "text"
            id = "myText"
+           name = "coord[]"
            placeholder = "Bottom Right: (  ,  )" />
     <input type="submit" name="Box3" value="Preview">
   </div>
@@ -171,12 +201,15 @@ if (isset($_POST["submit"])) {
     <p>Box 4</p>
     <input type = "text"
            id = "myText"
+           name = "coord[]"
            placeholder = "Top Left: (  ,  )"/>
     <input type = "text"
            id = "myText"
+           name = "coord[]"
            placeholder = "Top Right: (  ,  )" />
     <input type = "text"
            id = "myText"
+           name = "coord[]"
            placeholder = "Bottom Right: (  ,  )" />
     <input type="submit" name="Box4" value="Preview">
 
@@ -185,12 +218,15 @@ if (isset($_POST["submit"])) {
     <p>Box 5</p>
     <input type = "text"
            id = "myText"
+           name = "coord[]"
            placeholder = "Top Left: (  ,  )"/>
     <input type = "text"
            id = "myText"
+           name = "coord[]"
            placeholder = "Top Right: (  ,  )" />
     <input type = "text"
            id = "myText"
+           name = "coord[]"
            placeholder = "Bottom Right: (  ,  )" />
   <input type="submit" name="Box5" value="Preview">
   </div>
@@ -198,12 +234,15 @@ if (isset($_POST["submit"])) {
     <p>Box 6</p>
     <input type = "text"
            id = "myText"
+           name = "coord[]"
            placeholder = "Top Left: (  ,  )"/>
     <input type = "text"
            id = "myText"
+           name = "coord[]"
            placeholder = "Top Right: (  ,  )" />
     <input type = "text"
            id = "myText"
+           name = "coord[]"
            placeholder = "Bottom Right: (  ,  )" />
     <input type="submit" name="Box6" value="Preview">
   </div>

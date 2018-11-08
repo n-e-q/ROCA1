@@ -1,9 +1,13 @@
 /**
  * 
  */
-var secondClick = false;
+var hasStarted = false;
+var itimer = 30;
+var myInterval;
+var delay;
 
 function setAllDefaultValues() {
+	hasStarted = false;
 	var inputs = document.getElementsByClassName("quadrant");
 	for (var i = 0; i < inputs.length; i++) {
 	    inputs[i].style.display = "flex";
@@ -28,18 +32,52 @@ function setAllDefaultValues() {
 	for (var i = 0; i < inputs.length; i++) {
 	    inputs[i].style.display = "grid";
 	}
+	
+	inputs = document.getElementById("timer");
+	inputs.innerHTML = "";
+	
+	var startButton = document.getElementById("start_button");
+	startButton.innerHTML = "<span class='ti-control-play' style='vertical-align: -2px'></span>";
+	startButton.style.backgroundColor = "green";
 }
 
-function start() {
-	var inputs = document.getElementsByTagName("INPUT");
-	for (var i = 0; i < inputs.length; i++) {
-		if(inputs[i].className != "inS" && inputs[i].className != "inS_text")
-			inputs[i].disabled = false;
+function start_or_stop() {
+	if(!hasStarted){
+		hasStarted = true;
+		
+		var modal = document.getElementsByClassName("modal-body");
+		var content = document.createTextNode("Observation Started.");
+		var br = document.createElement("br");
+		date = new Date();
+		var timeStamp = document.createTextNode("[" + twoDigits(date.getHours()) + ":" + twoDigits(date.getMinutes()) + ":" + twoDigits(date.getSeconds()) + "] ");
+		modal[0].appendChild(timeStamp);
+		modal[0].appendChild(content);
+		modal[0].appendChild(br);
+		
+		var inputs = document.getElementsByTagName("INPUT");
+		for (var i = 0; i < inputs.length; i++) {
+			if(inputs[i].className != "inS" && inputs[i].className != "inS_text")
+				inputs[i].disabled = false;
+		}
+		
+		var startButton = document.getElementById("start_button");
+		startButton.innerHTML = "<span class='ti-control-stop' style='vertical-align: -2px'></span>";
+		startButton.style.backgroundColor = "red";
+		myInterval = setInterval(runIntervalTimer, 1000);
+	}
+	else {
+		reload();
 	}
 }
 
-function end() {
+function reload() {
 	setAllDefaultValues();
+	var myNode = document.getElementsByClassName("modal-body");
+	while (myNode[0].firstChild) {
+	    myNode[0].removeChild(myNode[0].firstChild);
+	}
+	clearInterval(myInterval);
+	itimer = 30;
 }
 
 /*function setAllDefaultValues() {
@@ -64,22 +102,25 @@ function end() {
 }*/
 
 function dataToFeed(event, obj) {
-	var modal = document.getElementsByClassName("modal-body");
-	var content = document.createTextNode(obj.textContent);
-	var br = document.createElement("br");
-	date = new Date();
-	var timeStamp = document.createTextNode("[" + twoDigits(date.getHours()) + ":" + twoDigits(date.getMinutes()) + ":" + twoDigits(date.getSeconds()) + "] ");
-	modal[0].appendChild(timeStamp);
-	modal[0].appendChild(content);
-	modal[0].appendChild(br);
-	
-	openFeed(event);
+	if(hasStarted){
+		var modal = document.getElementsByClassName("modal-body");
+		var content = document.createTextNode(obj.textContent);
+		var br = document.createElement("br");
+		date = new Date();
+		var timeStamp = document.createTextNode("[" + twoDigits(date.getHours()) + ":" + twoDigits(date.getMinutes()) + ":" + twoDigits(date.getSeconds()) + "] ");
+		modal[0].appendChild(timeStamp);
+		modal[0].appendChild(content);
+		modal[0].appendChild(br);
+		
+		openFeed(event);
+	}
 }
 
 
 function openFeed(event) 
 {
 	// Get the modal
+	clearTimeout(delay);
 	var modal = document.getElementById('feed');
 	// Get the button that opens the modal
 	var btn = document.getElementById("feed_button");
@@ -109,7 +150,30 @@ function openFeed(event)
 		modal.style.display = "block";
 	}*/
 	updateScroll();
+	console.log(event.toElement.tagName);
+	if(event.toElement.tagName != "SPAN" && event.toElement.tagName != "BUTTON")
+		delay = setTimeout(function(){ modal.style.display = "none"; }, 3000);
 	event.stopPropagation();
+	
+}
+
+function runIntervalTimer() {
+	if(hasStarted){
+		var min = Math.floor(itimer / 60);
+		var sec = twoDigits(itimer % 60);
+		document.getElementById("timer").innerHTML = "";
+		if(itimer <= 100 && itimer != 0)
+			document.getElementById("timer").innerHTML = "Next in: " + min + ":" + sec;
+		if(itimer == 0){
+			/* Submit interval readings every time timer reaches 0*/
+			intervalSubmit();
+			document.getElementById("timer").innerHTML = "Interval submitted!";
+			itimer = 30;
+		}
+		else {
+			itimer = itimer -1;
+		}
+	}
 }
 
 window.onclick = function(event) {
@@ -126,5 +190,20 @@ function updateScroll(){
 
 function twoDigits(x) {
 	return ("0" + x).slice(-2);
+}
+
+function intervalSubmit() {
+	var intForm = document.getElementById("interval_readings_form");
+	intForm.submit();
+	intForm.reset();
+	
+	var modal = document.getElementsByClassName("modal-body");
+	var content = document.createTextNode("Interval submitted.");
+	var br = document.createElement("br");
+	date = new Date();
+	var timeStamp = document.createTextNode("[" + twoDigits(date.getHours()) + ":" + twoDigits(date.getMinutes()) + ":" + twoDigits(date.getSeconds()) + "] ");
+	modal[0].appendChild(timeStamp);
+	modal[0].appendChild(content);
+	modal[0].appendChild(br);
 }
 

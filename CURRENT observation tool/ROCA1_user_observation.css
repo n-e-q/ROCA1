@@ -15,6 +15,7 @@ html {
 	
     position: relative;
 	display: inline-block;
+	/*border: solid;*/
 	
 }
 
@@ -64,7 +65,11 @@ html {
 
 
 #timer {
-	display: inline-block;
+	display: inline;
+	/*border: solid;*/
+	/*padding-left: 10px;*/
+	margin-left: 10px;
+	font-size: medium;
 }
 
 body {
@@ -95,7 +100,9 @@ body {
 }
 
 #top_left {
-	padding-left: 30px;
+	/*padding-left: 30px;*/
+	/*border: solid;*/
+	font-size: xx-large;
 }
 
 #left_side > * {

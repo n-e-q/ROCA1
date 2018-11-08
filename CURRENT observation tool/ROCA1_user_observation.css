@@ -51,8 +51,8 @@ html {
 }
 
 .dropdown-content a:hover {
-	background-color: #232323;
-	color:#ffffff
+	background-color: grey/*#232323*/;
+	color: white;
 }
 
 .dropdown:hover .dropdown-content {
@@ -63,7 +63,9 @@ html {
 }
 
 
-
+#timer {
+	display: inline-block;
+}
 
 body {
 	height: 50%;
@@ -106,8 +108,8 @@ body {
 }
 
 #bottom_left {
-	margin: auto;
-	padding-bottom: 75px;
+	/*margin: auto;*/
+	/*padding-bottom: 75px;*/
 
 }
 
@@ -194,7 +196,7 @@ body {
 	padding-left: 35px;
 	margin-bottom: 12px;
 	cursor: pointer;
-	font-size: medium;
+	font-size: 60%;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -359,15 +361,16 @@ button:focus {outline:0;}
 	position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
 	left: 25%;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
+    /*top: 0;*/
+    width: 50%; /* Full width */
+    height: 50%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     -webkit-animation-name: fadeIn; /* Fade in the background */
     -webkit-animation-duration: 0.2s;
     animation-name: fadeIn;
 	animation-duration: 0.2s;
 	box-shadow: 0 20px 0px 0 rgba(0, 0, 0, 0.20);
+	bottom: 0;
 }
 
 /* Modal Content */
@@ -382,6 +385,9 @@ button:focus {outline:0;}
 	animation-duration: 0.2s;
 	border-top-left-radius: 35px;
 	border-top-right-radius: 35px;
+	height: 25%;
+	display: flex;
+	flex-direction: column;
 }
 
 /* The Close Button */
@@ -410,6 +416,9 @@ button:focus {outline:0;}
 
 .modal-body {
 	padding: 16px 16px 16px 16px;
+	flex-grow: 1;
+	overflow: scroll;
+	max-height: 100%;
 	
 }
 

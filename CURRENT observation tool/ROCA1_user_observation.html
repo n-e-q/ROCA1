@@ -139,46 +139,45 @@
 			</div>
 			
 			<div id="bottom_left">
-
 				<div class="dropdown">
 				<button class="button">student activities</button>
 				<div class="dropdown-content">
-						<a>Small group work</a>
-						<a>Group discussion</a>
-						<a>Student presentation</a>
-						<a>Deskwork</a>
+						<a onclick="dataToFeed(event, this)">Small group work</a>
+						<a onclick="dataToFeed(event, this)">Group discussion</a>
+						<a onclick="dataToFeed(event, this)">Student presentation</a>
+						<a onclick="dataToFeed(event, this)">Deskwork</a>
 						</div>
 				</div>
 
 				<div class="dropdown">
 				<button class="button">instructor activities</button>
 				<div class="dropdown-content">
-						<a>Lecturing</a>
-						<a>Lecturing while writing</a>
-						<a>Lecturing from pre-made visuals</a>
-						<a>Lecturing with demonstration of phenomena</a>
-						<a>Interactive lecture</a>
-						<a>Multimedia</a>
-						<a>Clicker question</a>
-						<a>Administrative task</a>
-						<a>Idle</a>
+						<a onclick="dataToFeed(event, this)">Lecturing</a>
+						<a onclick="dataToFeed(event, this)">Lecturing while writing</a>
+						<a onclick="dataToFeed(event, this)">Lecturing from pre-made visuals</a>
+						<a onclick="dataToFeed(event, this)">Lecturing with demonstration of phenomena</a>
+						<a onclick="dataToFeed(event, this)">Interactive lecture</a>
+						<a onclick="dataToFeed(event, this)">Multimedia</a>
+						<a onclick="dataToFeed(event, this)">Clicker question</a>
+						<a onclick="dataToFeed(event, this)">Administrative task</a>
+						<a onclick="dataToFeed(event, this)">Idle</a>
 						</div>
 				</div>
 
 				<div class="dropdown">
 				<button class="button">instructor events</button>
 				<div class="dropdown-content">
-						<a>Rhetorical question</a>
-						<a>Display question</a>
-						<a>Comprehension question</a>
-						<a>Provides feedback</a>
+						<a onclick="dataToFeed(event, this)">Rhetorical question</a>
+						<a onclick="dataToFeed(event, this)">Display question</a>
+						<a onclick="dataToFeed(event, this)">Comprehension question</a>
+						<a onclick="dataToFeed(event, this)">Provides feedback</a>
 						</div>
 				</div>
-
 				<button class="circularButton" title="Reset" type="button" id="reset_button" onclick="end()"><span class="ti-reload" style="vertical-align: -2px"></span></button>
 				<button class="circularButton" title="Start" type="button" id="start_button" onclick="start()"><span class="ti-control-play" style="vertical-align: -2px"></span></button>
-				<button class="circularButton" title="Feed" type="button" id="feed_button" onclick="openFeed()"><span class="ti-comment-alt" style="vertical-align: -2px"></span></button>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Timer goes here (need to link to javascript)
+				<button class="circularButton" title="Feed" type="button" id="feed_button" onclick="openFeed(event)"><span class="ti-comment-alt" style="vertical-align: -2px"></span></button>
+				<div id="timer">Timer</div>
+				<!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Timer goes here-->
 
 				<div id="feed" class="modal">
 
@@ -189,11 +188,10 @@
 						Feedback
 					  </div>
 					  <div class="modal-body">
-						Observation has... not started (and won't until Annie saves the day with her JavaScript skills)
 					  </div>
 					</div>
 				  
-				  </div>
+			   </div>
 
 
 

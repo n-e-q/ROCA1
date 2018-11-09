@@ -79,10 +79,10 @@ function reload() {
 	    myNode[0].removeChild(myNode[0].firstChild);
 	}
 	
-	myNode = document.getElementsByClassName("fadingFeed");
+	/*myNode = document.getElementsByClassName("fadingFeed");
 	while (myNode[0].firstChild) {
 	    myNode[0].removeChild(myNode[0].firstChild);
-	}
+	}*/
 
 	
 	clearInterval(myInterval);
@@ -113,9 +113,9 @@ function reload() {
 function dataToFeed(event, obj) {
 	if(hasStarted){
 		var myNode = document.getElementsByClassName("fadingFeed");
-		while (myNode[0].firstChild) {
+		while (myNode[0].firstChild) 
 	    		myNode[0].removeChild(myNode[0].firstChild);
-		}
+		
 	}
 	    $(".fadingFeed").fadeIn()
 		clearTimeout(delay);

@@ -38,7 +38,8 @@ function setAllDefaultValues() {
 	
 	var startButton = document.getElementById("start_button");
 	startButton.innerHTML = "<span class='ti-control-play' style='vertical-align: -2px'></span>";
-	startButton.style.backgroundColor = "green";
+	startButton.className="pulse-button"
+	startButton.style.backgroundColor = "";
 }
 
 function start_or_stop() {
@@ -61,6 +62,7 @@ function start_or_stop() {
 		}
 		
 		var startButton = document.getElementById("start_button");
+		if (startButton.className=="pulse-button") startButton.className="circularButton";
 		startButton.innerHTML = "<span class='ti-control-stop' style='vertical-align: -2px'></span>";
 		startButton.style.backgroundColor = "red";
 		myInterval = setInterval(runIntervalTimer, 1000);
@@ -103,16 +105,25 @@ function reload() {
 
 function dataToFeed(event, obj) {
 	if(hasStarted){
+		var myNode = document.getElementsByClassName("fadingFeed");
+		while (myNode[0].firstChild) {
+	    myNode[0].removeChild(myNode[0].firstChild);
+	}
+	    $(".fadingFeed").fadeIn()
 		var modal = document.getElementsByClassName("modal-body");
+		var notification = document.getElementsByClassName("fadingFeed");
 		var content = document.createTextNode(obj.textContent);
+		var notificationContent = document.createTextNode(obj.textContent);
 		var br = document.createElement("br");
 		date = new Date();
 		var timeStamp = document.createTextNode("[" + twoDigits(date.getHours()) + ":" + twoDigits(date.getMinutes()) + ":" + twoDigits(date.getSeconds()) + "] ");
 		modal[0].appendChild(timeStamp);
 		modal[0].appendChild(content);
 		modal[0].appendChild(br);
+		notification[0].appendChild(notificationContent);
+		$(".fadingFeed").delay(2000).fadeOut()
 		
-		openFeed(event);
+		//openFeed(event);
 	}
 }
 
@@ -180,6 +191,7 @@ window.onclick = function(event) {
 	//if (event.target == modal) {
 		var modal = document.getElementById('feed');
 		modal.style.display = "none";
+		
 	//}
 }
 

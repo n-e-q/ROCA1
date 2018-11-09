@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="themify-icons.css">
 	<link rel="stylesheet" href="fonts/stylesheet.css">
 	<script type="text/javascript" src="ROCA1_user_observation.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body onload="setAllDefaultValues()">
 	<!-- Data from forms set to invisible iframe: WILL NEED TO CHANGE THIS LATER -->
@@ -50,7 +51,13 @@
 						<a onclick="dataToFeed(event, this)">Interactive lecture</a>
 						<a onclick="dataToFeed(event, this)">Multimedia</a>
 						<a onclick="dataToFeed(event, this)">Clicker question</a>
-						<a onclick="dataToFeed(event, this)">Administrative task</a>
+
+
+
+
+						<a onclick="dataToFeed(event, this)">Administrative Task</a>
+
+
 						<a onclick="dataToFeed(event, this)">Idle</a>
 						</div>
 				</div>
@@ -65,9 +72,10 @@
 						</div>
 				</div>
 				<button class="circularButton" title="Reset" type="button" id="reset_button" onclick="reload()"><span class="ti-reload" style="vertical-align: -2px"></span></button>
-				<button class="circularButton" title="Start" type="button" id="start_button" onclick="start_or_stop()"><span class="ti-control-play" style="vertical-align: -2px"></span></button>
+				<button class="pulse-button" title="Start" type="button" onclick="start_or_stop()" id="start_button"><span class="ti-control-play" style="vertical-align: -2px"></span></button>
 				<button class="circularButton" title="Feed" type="button" id="feed_button" onclick="openFeed(event)"><span class="ti-comment-alt" style="vertical-align: -2px"></span></button>
-				<div id="timer">Timer</div>
+				<br /><div id="timer" style="position: absolute">Timer</div><br />
+				<div class="fadingFeed" style="position: absolute"></div>
 				<!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Timer goes here-->
 
 				<div id="feed" class="modal">
@@ -78,8 +86,13 @@
 						<span class="close"></span>
 						Feedback
 					  </div>
+					
+					  
 					  <div class="modal-body">
+
 					  </div>
+					  
+					  
 					</div>
 				  
 			   </div>

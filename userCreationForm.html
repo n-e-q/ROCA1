@@ -1,61 +1,51 @@
-<!DOCTYPE html>
 <html>
-<head>
-  <title> Course Creation </title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="usercreationstyle.css">
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
-  <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Vibur" rel="stylesheet">
-  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-</head>
-<body>
-  <h3> <i class="fas fa-plus"></i> User Creation </h3>
-        <hr>
-  <div class = "container">
-    <div id = "contact">
-    <section class = ="section"> 
-          <!-- will display the success or error message -->
-          <div class = "messages"></div>
-          <div class = "row">
-            <div class = "col-md-6 mx-auto">
-              <!-- Name form -->
+    <head>
+        <title>User Creation</title>
+        <link rel="stylesheet" href="mainStylesheet.css">
+    </head>
 
-              <div class = "form-group">
-                  <label for = "professor"><b>  Email: </b></label>
-                  <input type = "text" id = "professor" name="professor" placeholder="jsmith@virginia.edu" required>
+    <body>
+
+
+        <div class="header">User Creation</div>
+              <div class = "selectdiv">
+                <label for = "userType"><b> User Type: </b></label>
+              <div class="dropdown">
+                  <button class="userType">Student Observer </button>
+                  <div class="dropdown-content">
+                      <a>Student Observer</a>
+                      <a>Faculty</a>
+                      <a>Other</a>
+                  </div>
+                </div>
               </div>
 
               <div class = "form-group">
-                  <label for = "number"><b> User Type: </b></label>
-                  <select name="mydropdown">
-                    <option value="Milk">Student Observer</option>
-                    <option value="Cheese">Faculty</option>
-                    <option value="Bread">Other</option>
-                  </select>
+                  <label for="subject"><b>Email: <b></label>
+                  <input type="email" id="subject" name="subject" placeholder=" " required>
+          
               </div>
 
               <div class = "form-group">
-                  <label for = "psw"><b> Password: </b></label>
-                  <input type = "password" id = "email" placeholder="" required>
+                  <label for = "professor"><b>Password </b></label>
+                  <input type = "password" id = "professor" name="professor" placeholder=" " required>
               </div>
 
               <div class = "form-group">
-                  <label for = "psw-repeat"><b> Password: </b></label>
-                  <input type = "password" id = "email" placeholder="" required>
+                  <label for = "professor"><b>Repeat Password </b></label>
+                  <input type = "password" id = "professor" name="professor" placeholder=" " required>
               </div>
 
-              <label>
-                <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-              </label>
-              <br>
-
-            <input type="submit" value="submit">
-
-                </form>
+        
+        <p><button class="button">submit</button></p>
+        
 
 
-            </div>
 
-</body>
+
+
+
+
+
+    </body>
 </html>

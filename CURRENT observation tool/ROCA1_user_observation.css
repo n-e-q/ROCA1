@@ -192,9 +192,10 @@ body {
 
 .checkbox-grid {
 	display: grid;
-	grid-template-columns: 100%;
+	grid-template-columns: 50% 25%;
 	padding-left: 25%;
-	padding-top: 5%;	
+	padding-top: 5%;*/	
+	border: solid;
 }
 
 .container {
@@ -203,7 +204,7 @@ body {
 	padding-left: 35px;
 	margin-bottom: 12px;
 	cursor: pointer;
-	font-size: 60%;
+	font-size: 100%;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -427,6 +428,18 @@ button:focus {outline:0;}
 	overflow: scroll;
 	max-height: 100%;
 	
+}
+
+#back_arrow {
+	border-radius: 50%;
+	border-color: #f2f2f2;
+	padding: 1%;
+	-webkit-transition-duration: 0.4s; /* Safari */
+    /*transition-duration: 0.4s;*/
+}
+
+#back_arrow:hover {
+	background-color: white;
 }
 
 /* Add Animation */

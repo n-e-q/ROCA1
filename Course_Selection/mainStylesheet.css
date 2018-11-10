@@ -11,6 +11,42 @@ body {
 	
 }
 
+.course{
+	zoom: 60%;
+}
+
+.course:hover h2 {
+	color: white;
+	font-color: white; 
+	-o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+}
+
+.course:hover h3 {
+	color: white;
+	font-color: white; 
+	-o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+}
+
+.addition{
+	zoom: 60%;
+}
+
+.course:hover{
+	background-color:#bebebe ;
+	font-color: white; 
+	-o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+}
+
+
 .subheader {
 	font-weight: bold;
 	font-size: large;

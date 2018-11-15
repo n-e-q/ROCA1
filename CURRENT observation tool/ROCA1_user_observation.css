@@ -11,6 +11,63 @@ html {
 
 
 
+/*Dumb dropdown inside dropdown experiment*/
+
+
+.dropdownInsideDropdown {
+	
+    position: relative;
+	display: inline-block;
+	/*border: solid;*/
+	
+}
+
+
+
+.dropdown2-content {
+	
+    display: none;
+	position: relative;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+	border-radius: 15px;
+	
+}
+
+.dropdown2-content a {
+	-o-transition:.25s;
+    -ms-transition:.25s;
+    -moz-transition:.25s;
+    -webkit-transition:.25s;
+    transition:.25s;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+	display: block;
+	font-family: product sans bold, sans-serif;
+	border-radius: 15px;
+	-o-transition:.35s;
+    -ms-transition:.35s;
+    -moz-transition:.35s;
+    -webkit-transition:.35s;
+    transition:.35s;
+	
+}
+
+.dropdown2-content a:hover {
+	background-color: /*grey*/#33b5e5;
+	color: white;
+}
+
+
+
+
+/*End of dumb experiment*/
+
+
+
 .dropdown {
 	
     position: relative;
@@ -54,7 +111,7 @@ html {
 }
 
 .dropdown-content a:hover {
-	background-color: grey/*#232323*/;
+	background-color: /*grey*/#33b5e5;
 	color: white;
 }
 

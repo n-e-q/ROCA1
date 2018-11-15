@@ -110,7 +110,6 @@ function dataToFeed(event, obj) {
 	    myNode[0].removeChild(myNode[0].firstChild);
 	}
 	    $(".fadingFeed").fadeIn()
-		clearTimeout(delay);
 		var modal = document.getElementsByClassName("modal-body");
 		var notification = document.getElementsByClassName("fadingFeed");
 		var content = document.createTextNode(obj.textContent);
@@ -122,8 +121,8 @@ function dataToFeed(event, obj) {
 		modal[0].appendChild(content);
 		modal[0].appendChild(br);
 		notification[0].appendChild(notificationContent);
+		$(".fadingFeed").delay(2000).fadeOut()
 		
-		delay = setTimeout(function(){$(".fadingFeed").fadeOut();}, 2000);
 		//openFeed(event);
 	}
 }
@@ -218,4 +217,14 @@ function intervalSubmit() {
 	modal[0].appendChild(timeStamp);
 	modal[0].appendChild(content);
 	modal[0].appendChild(br);
+}
+
+function showSubmenu() {
+	document.getElementsByClassName("dropdown2-content")[0].style.display = "inline-block";
+	//console.log("done")
+}
+
+function hideSubmenu() {
+	document.getElementsByClassName("dropdown2-content")[0].style.display = "none";
+	//console.log("done")
 }

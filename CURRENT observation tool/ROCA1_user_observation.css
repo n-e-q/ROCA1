@@ -2,10 +2,12 @@
 html {
 	height: 100vh;
 	width: 100vw;
+	max-height: 100%;
+	max-width: 100%;
 	display: flex;
 	flex-direction: column;
 	background: #f2f2f2;
-	
+	margin: 0;
 	
 }
 
@@ -134,10 +136,13 @@ body {
 	height: 50%;
 	flex-grow: 1;
 	font-family: product sans, sans-serif;
-	padding-top: 20px;
+	/*padding-top: 20px;
     padding-right: 20px;
     padding-bottom: 20px;
-	padding-left: 20px;
+	padding-left: 20px;*/
+	padding: 1%;
+	margin: 0;
+	border: solid;
 	
 }
 
@@ -146,7 +151,7 @@ body {
 .body_content {
 	height: 100%;
 	display: grid;
-	grid-template-columns: 75% 25%;
+	grid-template-columns: 75% 24%;
 	grid-gap: 1%;
 	
 }
@@ -154,7 +159,8 @@ body {
 #left_side {
 	display: grid;
 	grid-template-rows: 10% 60% 24%;
-	grid-gap: 3%;
+	grid-gap: 2%;
+	border: solid;
 }
 
 #top_left {
@@ -165,16 +171,18 @@ body {
 }
 
 #left_side > * {
-	
 }
 
 #right_side {
 	display: flex;
 	flex-direction: column;
+	border: solid;
 }
 
 #bottom_left {
+	height: 50%;
 	margin: auto;
+	padding-top: .5%;
 	padding-bottom: 75px; /*previously commented out but i think it makes the buttons look nicer right? Aligned in the center of the classroom image*/
 
 }

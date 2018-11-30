@@ -7,8 +7,25 @@ body {
 	padding-top: 20px;
     padding-right: 20px;
     padding-bottom: 20px;
-	padding-left: 20px;
-	
+	padding-left: 20px;	
+}
+
+label{
+	display: inline-block;
+    float: left;
+    clear: left;
+    width: 40%;
+    text-align: right;
+    margin-right: 1%;
+}
+
+input {
+  display: inline-block;
+  float: left;
+}
+
+.classDay{
+	text-align: center;
 }
 
 .subheader {
@@ -22,25 +39,26 @@ body {
 	font-size: xx-large;
 	color: #000000;
 	padding-bottom: 2%;
+	text-align: center;
 }
 
 .dropdown {
-	
-    position: relative;
-	display: inline-block;
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 40%;
+    text-align: right;
+    margin-right: 1%;
 }
 
 .dropdown-content {
-	
     display: none;
-    position: relative;
+    position: absolute;
     background-color: #f1f1f1;
-    min-width: 160px;
+    min-width: auto;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    text-align: center;
-	
-	
+	z-index: 1;
+	margin-left: 25%;
 }
 
 .dropdown-content a {
@@ -54,7 +72,7 @@ body {
     text-decoration: none;
 	display: block;
 	font-family: product sans bold, sans-serif;
-	border-radius: 35px;
+	border-radius: 15px;
 	-o-transition:.35s;
     -ms-transition:.35s;
     -moz-transition:.35s;
@@ -64,15 +82,16 @@ body {
 }
 
 .dropdown-content a:hover {
-	background-color: #bebebe;
-	color:#000000
+	background-color: /*grey*/#33b5e5;
+	color: white;
 }
 
 .dropdown:hover .dropdown-content {
 	
-	border-radius: 25px;
+	border-radius: 15px;
 	display: block;
-	bottom:100%;
+	/*add this to make it a "drop up": bottom:100%;*/
+	
 }
 
 .checkbox-grid {
@@ -110,6 +129,7 @@ body {
     -ms-transition:.5s;
     -moz-transition:.5s;
     -webkit-transition:.5s;
+    margin-left: 105%;
     transition:.5s;
 	position: absolute;
 	top: 0;
@@ -177,13 +197,17 @@ body {
 	color: #ffffff;
 	background-color: #232323;
     cursor: pointer;
-    margin: 5px;
+    margin: 3%;
 	height: 40px;
     text-align:center;
     border: none;
     background-size: 300% 100%;
 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.20);
 	border-radius: 100px;
+	display: inline-block;
+    float: left;
+    text-align: center;
+    margin-top: 6%;
 	
 }
 

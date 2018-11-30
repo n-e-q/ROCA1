@@ -12,6 +12,26 @@
 	<?php 
 		include 'database.php';
 	?>
+        <script type='text/javascript'>
+        
+        $(document).ready(function() {
+        
+        $(".dropdown-content a").click(function(){ //start
+
+$("#dropdown1:first-child").html($(this).text()); //going to have to copy start to end over and over for each dropdown list
+
+}); //end
+		
+		$(".dropdown-content a").click(function(){ //start
+
+$("#dropdown2:first-child").html($(this).text()); //going to have to copy start to end over and over for each dropdown list
+
+});
+
+    
+    });
+        
+        </script>
 </head>
 <body onload="setAllDefaultValues()">
 	<!-- Data from forms set to invisible iframe: WILL NEED TO CHANGE THIS LATER -->
@@ -42,7 +62,7 @@
 				</div>
 
 				<div class="dropdown">
-					<button class="button">instructor activities</button>
+					<button class="button" id="dropdown1">instructor activities</button>
 					<div class="dropdown-content">
 							<!-- <a onclick="dataToFeed(event, this)">Lecturing</a>
 							<a onclick="dataToFeed(event, this)">Lecturing while writing</a>
@@ -74,7 +94,7 @@
 				</div>
 
 				<div class="dropdown">
-					<button class="button">instructor events</button>
+					<button class="button" id="dropdown2">instructor events</button>
 					<div class="dropdown-content">
 							<?php getfromcodebank(3) ?>
 					</div>

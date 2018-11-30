@@ -2,6 +2,21 @@
     <head>
         <title>Stylesheet Example</title>
         <link rel="stylesheet" href="mainStylesheet.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type='text/javascript'>
+        
+        $(document).ready(function() {
+        
+        $(".dropdown-content a").click(function(){ //start
+
+$("#dropdown1:first-child").html($(this).text()); //going to have to copy start to end over and over for each dropdown list
+
+}); //end
+
+    
+    });
+        
+        </script>
     </head>
 
     <body>
@@ -19,7 +34,7 @@
         <p><button class="pulse-button" title="Start" type="button" onclick="start_or_stop()" id="start_button"><span class="ti-control-play" style="vertical-align: -2px"></span></button>&nbsp;&nbsp;&nbsp;&nbsp;This is a pulsing icon button</p>
         <p>
             <div class="dropdown">
-                <button class="button">this is a dropdown</button>
+                <button class="button" id="dropdown1" style="cursor:default;">this is a dropdown</button>
                 <div class="dropdown-content">
                     <a>Chocolate</a>
                     <a>Vanilla</a>

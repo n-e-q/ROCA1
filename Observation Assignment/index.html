@@ -2,10 +2,17 @@
 
 <html>
 	<head>
+	<script language="JavaScript">
+		function showInput(){
+			document.getElementById('display').innerHTML = document.getElementById("user_input").value;
+		}
+	</script>
+
 		<title>DOTS: Observation Assignment</title>
 		<link rel="stylesheet" href="mainStylesheet.css">
 	</head>
 	<body>
+
 		<div class="header">Observation Assignment</div>
 		<form action="index.php" method="post">
 			<input name="action" type="hidden" value = "set_observation_info">
@@ -25,7 +32,13 @@
 				<label for = "time"><b>Observation Time: </b></label>
 				<input type = "text" id = "time" name = "time" placeholder = " " required>
 			</div>
-			<p><button class="button" onclick="alert('added observation assignment!')">Add</button></p>
+			<p><button class="button" onclick="showInput();">Add</button></p>
 		</form>
+
+		<script>
+			function showInput(){
+				alert("Your Observation Assignment has been submitted");
+			}
+		</script>
 	</body>
 </html>

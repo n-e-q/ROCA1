@@ -177,7 +177,7 @@ if (isset($_POST["submit"])) {
 <h3><strong>Setting the Sections of the Classroom</strong></h3>
 
 	
-	
+<!-- TO REVIEW -->	
 	
 <!-- Diplay grid over uploaded img  -->
 <!--

@@ -59,7 +59,7 @@ function shadeGrid(x1, y1, x2, y2, bid){
 
 
 function openClassInputs(bid) {
-
+	hideAll();
 	ID = 's' + bid;
 	var section = document.getElementById(ID);
 	section.textContent = "BOX " + bid;
@@ -67,6 +67,13 @@ function openClassInputs(bid) {
 		section.style.display = "block";
 	else
 		section.style.display = "none";
+}
+
+function hideAll() {
+	var inputs = document.getElementsByClassName("class_section_input");
+	for(var i = 0; i < inputs.length; i++){
+		inputs[i].style.display = "none";
+	}
 }
 
 

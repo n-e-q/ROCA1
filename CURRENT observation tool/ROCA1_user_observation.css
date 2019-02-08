@@ -142,7 +142,7 @@ body {
 	padding-left: 20px;*/
 	padding: 1%;
 	margin: 0;
-	border: solid;
+	/*border: solid;*/
 	
 }
 
@@ -160,7 +160,7 @@ body {
 	display: grid;
 	grid-template-rows: 10% 60% 24%;
 	grid-gap: 2%;
-	border: solid;
+	/*border: solid;*/
 }
 
 #top_left {
@@ -176,7 +176,7 @@ body {
 #right_side {
 	display: flex;
 	flex-direction: column;
-	border: solid;
+	/*border: solid;*/
 }
 
 #bottom_left {
@@ -190,6 +190,9 @@ body {
 #classroom_mapping {
 	background-image: url("MEC-341.jpg");
 	background-size: 100% 100%;
+	display: grid;
+	grid-template-rows: repeat(10, 10%);
+ 	grid-template-columns: repeat(30, 1fr);
 	
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -201,6 +204,16 @@ body {
 	border-width: 2px;
 	*/
 }
+
+.grid_boxes {
+ 	display: block;
+ 	/*outline: solid;
+ 	outline-width: thin;
+ 	outline-color: white;*/
+ 	color: white;
+ 	text-align: right;
+ 	background-color: transparent;
+ }
 
 .quad_num {
 	text-align: left;
@@ -238,7 +251,7 @@ body {
 
 #student_events_form {	
 	height: 100%;
-	display: grid;
+	display: none;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-template-rows: 50% 50%;
 }
@@ -424,6 +437,17 @@ button:focus {
 	outline:0;
 }
 
+.class_section_input {
+	/*display: none;*/
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	background-color: white;
+	width: 33%;
+	height: 20%;
+	left: 33%;
+}
+
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
@@ -474,6 +498,7 @@ button:focus {
 	overflow-y: auto; /* Enable scroll if needed */
 	
 }
+
 
 #back_arrow {
 

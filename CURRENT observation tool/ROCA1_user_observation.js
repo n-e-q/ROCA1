@@ -5,17 +5,82 @@ var hasStarted = false;
 var itimer = 30;
 var myInterval;
 var delay;
+var delay2;
+
+const NUM_ROWS = 10;
+const NUM_COLUMNS = 30;
+
+function createBoxes(){
+	
+	shadeGrid(0,2,9,5, 1);
+	shadeGrid(2,5,10,6, 2);
+	shadeGrid(5,6,12,7, 3);
+	shadeGrid(12,0,28,4, 4);
+	shadeGrid(13,4,23,6, 5);
+	shadeGrid(13,6,20,7, 6);
+	
+	/*
+	 * 1: (0,2), (9,5)
+	 * 2: (2,5), (10,6)
+	 * 3: (5,6), (12,7)
+	 * 4: (12,0), (28,4)
+	 * 5: (13,4), (23,6)
+	 * 6: (13,6), (20,7)
+	 * 
+	 */
+}
+
+function shadeGrid(x1, y1, x2, y2, bid){
+	
+	var frame = document.getElementById('classroom_mapping');
+	
+	var height = y2 - y1;
+	var width = x2 - x1;
+	var x = x1+2;
+	var y = NUM_ROWS - (height + y1);
+	
+	var box = document.createElement('div');
+	
+	box.id = bid;
+	box.className = "classroom_box"
+	box.style.backgroundColor = "rgba(98,86, 80, 0.5)";
+	box.style.gridRow= y + " / span " + height;
+	box.style.gridColumn = x + " / span " + width;
+	box.style.border = "solid";
+	
+	//box.onmouseover = openClassInputs();
+	box.onclick= function(){openClassInputs(bid)};
+	frame.appendChild(box);
+	
+	console.log("(" + x + "," + y+"); height: " + height + "; width: " + width);
+}
+
+
+
+
+function openClassInputs(bid) {
+
+	ID = 's' + bid;
+	var section = document.getElementById(ID);
+	section.textContent = "BOX " + bid;
+	if(section.style.display == "none")
+		section.style.display = "block";
+	else
+		section.style.display = "none";
+}
+
+
+
+
 
 function setAllDefaultValues() {
+	//alert("hello!");
 	hasStarted = false;
-	var inputs = document.getElementsByClassName("quadrant");
-	for (var i = 0; i < inputs.length; i++) {
-	    inputs[i].style.display = "flex";
-	}
-	inputs = document.getElementsByClassName("quadrant_inputs");
+	var inputs = document.getElementsByClassName("class_section_input");
 	for (var i = 0; i < inputs.length; i++) {
 	    inputs[i].style.display = "none";
 	}
+	
 	// Reset forms
 	inputs = document.getElementsByTagName("FORM");
 	for (var i = 0; i < inputs.length; i++) {
@@ -40,6 +105,8 @@ function setAllDefaultValues() {
 	startButton.innerHTML = "<span class='ti-control-play' style='vertical-align: -2px'></span>";
 	startButton.className="pulse-button"
 	startButton.style.backgroundColor = "";
+	
+	createBoxes();
 }
 
 function start_or_stop() {
@@ -109,7 +176,7 @@ function dataToFeed(event, obj) {
 		while (myNode[0].firstChild) {
 	    myNode[0].removeChild(myNode[0].firstChild);
 	}
-	    $(".fadingFeed").fadeIn()
+	    //$(".fadingFeed").fadeIn()
 		var modal = document.getElementsByClassName("modal-body");
 		var notification = document.getElementsByClassName("fadingFeed");
 		var content = document.createTextNode(obj.textContent);
@@ -121,10 +188,19 @@ function dataToFeed(event, obj) {
 		modal[0].appendChild(content);
 		modal[0].appendChild(br);
 		notification[0].appendChild(notificationContent);
-		$(".fadingFeed").delay(2000).fadeOut()
+		
+		//$(".fadingFeed").delay(2000).fadeOut()
 		
 		//openFeed(event);
+		fadeFeedHandler(event);
 	}
+}
+
+function fadeFeedHandler(event) {
+	clearTimeout(delay2);
+	$(".fadingFeed").fadeIn()
+	delay2 = setTimeout(function(){ $(".fadingFeed").fadeOut(); }, 2000);
+	event.stopPropagation();
 }
 
 
@@ -191,6 +267,14 @@ window.onclick = function(event) {
 	//if (event.target == modal) {
 		var modal = document.getElementById('feed');
 		modal.style.display = "none";
+		
+		if(event.target.className != 'classroom_box'){
+			var inputs = document.getElementsByClassName('class_section_input');
+			for (var i = 0; i < inputs.length; i++) {
+			    inputs[i].style.display = "none";
+			}
+			console.log(event.target);
+		}
 		
 	//}
 }

@@ -9,11 +9,9 @@
 	<link rel="stylesheet" href="fonts/stylesheet.css">
 	<script type="text/javascript" src="ROCA1_user_observation.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	
 	<?php 
 		include 'database.php';
 	?>
-        
 </head>
 <body onload="setAllDefaultValues()">
 	<!-- Data from forms set to invisible iframe: WILL NEED TO CHANGE THIS LATER -->
@@ -25,14 +23,29 @@
 		<div id="left_side">
 			<!-- BEGIN: top_left div -->
 			<!-- Contains back button and room name -->
+			<form autocomplete="off" id="student_events_form" target="dump_data_frame"></form>
 			<div id="top_left">
 				<div><a onclick="reload()" style=" vertical-align: middle"><span id="back_arrow" class="ti-arrow-left" ></span></a>&nbsp;&nbsp;&nbsp;MEC 305</div>
+				
+				
+				
+    				<div class="class_section_input" id="s1">
+    					<a>Display Question</a>
+    					<a>Response to Instructor</a>
+    					<a>Response to Student</a>
+    					<a>Makes Prediction</a>
+    				</div>
+    				<div class="class_section_input" id="s2"></div>
+    				<div class="class_section_input" id="s3"></div>
+    				<div class="class_section_input" id="s4"></div>
+    				<div class="class_section_input" id="s5"></div>
+    				<div class="class_section_input" id="s6"></div>
+    				
+				
 			</div>
 			<!-- BEGIN: classroom mapping -->
 			<div id="classroom_mapping">
-				<form autocomplete="off" id="student_events_form" target="dump_data_frame">
-					
-				</form>
+				
 			</div>
 			
 			<div id="bottom_left">
@@ -44,7 +57,7 @@
 				</div>
 
 				<div class="dropdown">
-					<button class="button" id="dropdown1">instructor activities</button>
+					<button class="button">instructor activities</button>
 					<div class="dropdown-content">
 							<!-- <a onclick="dataToFeed(event, this)">Lecturing</a>
 							<a onclick="dataToFeed(event, this)">Lecturing while writing</a>
@@ -76,7 +89,7 @@
 				</div>
 
 				<div class="dropdown">
-					<button class="button" id="dropdown2">instructor events</button>
+					<button class="button">instructor events</button>
 					<div class="dropdown-content">
 							<?php getfromcodebank(3) ?>
 					</div>

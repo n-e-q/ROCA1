@@ -82,7 +82,7 @@ function getfromcodebank($cID) {
     while($row = mysqli_fetch_array($result)){
         /*echo "<option value='".$row['dName']."'</option>";*/
         if($cID < 5){
-            echo "<a onclick='dataToFeed(event, this)'>" . $row['dName'] . "</a>";
+            echo "<a onclick='dataToFeed(event, this, null)'>" . $row['dName'] . "</a>";
         }
         else {
             echo "<label class='container' title=" . $row['dName'] . ">

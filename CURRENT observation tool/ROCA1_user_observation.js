@@ -7,6 +7,40 @@ var myInterval;
 var delay;
 var delay2;
 
+var SN1, SN2, SN3, SN4, SN5, SN6;
+SN1 = SN2 = SN3 = SN4 = SN5 = SN6 = 0;
+
+var html = `
+<table style="width:auto; height:auto;">
+<caption style="font-size: 40%; padding-top: 5%"> [ NUMBOX ] </caption>
+<tr>
+<td rowspan="3"><span class='ti-user' style='vertical-align: -2px; font-size: 100%;'></span></td>
+<td><button class="circularButton" title="Increment Students" type="button" id="more_students" onclick="updateStudentNum(this,NUMBOX)" style="font-weight: bold; font-size: 100%;">+</button></td>
+<td rowspan="3">
+	<button class="button" style="width:100%" onclick="dataToFeed(event,this,NUMBOX)">Display Question</button> 
+	<button class="button" style="width:100%" onclick="dataToFeed(event,this,NUMBOX)">Response to Instructor</button>
+	<button class="button" style="width:100%" onclick="dataToFeed(event,this,NUMBOX)">Make Prediction</button>
+	<button class="button" style="width:100%" onclick="dataToFeed(event,this,NUMBOX)">Response to Student</button>
+</td>
+</tr>
+
+
+
+<tr>
+<td id="numStudentLabelNUMBOX" style="font-size: 50%;"> Value </td>
+</tr>
+
+
+
+<tr>
+<td><button class="circularButton" title="Decrement Students" type="button" id="less_students" onclick="updateStudentNum(this,NUMBOX)" style="font-weight: bold; font-size: 100%;">-</button></td>
+</tr>
+
+
+
+</table>
+`;
+
 const NUM_ROWS = 10;
 const NUM_COLUMNS = 30;
 
@@ -49,24 +83,116 @@ function shadeGrid(x1, y1, x2, y2, bid){
 	box.style.border = "solid";
 	
 	//box.onmouseover = openClassInputs();
-	box.onclick= function(){openClassInputs(bid)};
+	box.onclick= function(){openClassInputs(bid,event)};
 	frame.appendChild(box);
 	
 	console.log("(" + x + "," + y+"); height: " + height + "; width: " + width);
 }
 
 
+function updateStudentNum(obj, num){
+	var id = "numStudentLabel" + num;
+	var label = document.getElementById(id);
+	if(obj.id == "more_students"){
+		switch (num) {
+		  case 1:
+		    SN1++;
+		    label.textContent = SN1;
+		    break;
+		  case 2:
+			SN2++;
+			label.textContent = SN2;
+			break;
+		  case 3:
+			SN3++;
+			label.textContent = SN3;
+		    break;
+		  case 4:
+			SN4++;
+			label.textContent = SN4;
+		    break;
+		  case 5:
+			SN5++;
+			label.textContent = SN5;
+		    break;
+		  case 6:
+			SN6++;
+			label.textContent = SN6;
+		}
+	}else {
+		switch (num) {
+		  case 1:
+		    if(SN1 > 0)SN1--;
+		    label.textContent = SN1;
+		    break;
+		  case 2:
+			if(SN2 > 0)SN2--;
+			label.textContent = SN2;
+			break;
+		  case 3:
+			if(SN3 > 0)SN3--;
+			label.textContent = SN3;
+		    break;
+		  case 4:
+			if(SN4 > 0)SN4--;
+			label.textContent = SN4;
+		    break;
+		  case 5:
+			if(SN5 > 0)SN5--;
+			label.textContent = SN5;
+		    break;
+		  case 6:
+			if(SN6 > 0)SN6--;
+			label.textContent = SN6;
+		}
+	}
+}
 
-
-function openClassInputs(bid) {
+function openClassInputs(bid,event) {
+	htmlEdited=html.replace(/NUMBOX/g,String(bid));
+	var sn;
+	switch (bid) {
+	  case 1:
+	    sn = SN1;
+	    break;
+	  case 2:
+		 sn = SN2;
+	    break;
+	  case 3:
+		 sn = SN3;
+	    break;
+	  case 4:
+		 sn = SN4;
+	    break;
+	  case 5:
+		 sn = SN5;
+	    break;
+	  case 6:
+		 sn = SN6;
+	}
+	htmlEdited= htmlEdited.replace("Value", sn);
 	hideAll();
 	ID = 's' + bid;
 	var section = document.getElementById(ID);
-	section.textContent = "BOX " + bid;
+
+	
+	
 	if(section.style.display == "none")
+	{
+		x=event.screenX-150;
+   	    y=event.screenY-150;
+        
+    	section.style.left=x+"px";
+    	section.style.top=y+"px";
 		section.style.display = "block";
+		section.innerHTML = htmlEdited; 
+		
+	}
 	else
+	{
 		section.style.display = "none";
+	}
+		
 }
 
 function hideAll() {
@@ -156,37 +282,23 @@ function reload() {
 	itimer = 30;
 }
 
-/*function setAllDefaultValues() {
-	var inputs = document.getElementsByClassName("quadrant");
-	for (var i = 0; i < inputs.length; i++) {
-	    inputs[i].style.display = "flex";
-	}
-	inputs = document.getElementsByClassName("quadrant_inputs");
-	for (var i = 0; i < inputs.length; i++) {
-	    inputs[i].style.display = "none";
-	}
-	
-	inputs = document.getElementsByTagName("FORM");
-	for (var i = 0; i < inputs.length; i++) {
-	    inputs[i].reset();
-	}
-	
-	inputs = document.getElementsByClassName("increment_stud");
-	for (var i = 0; i < inputs.length; i++) {
-	    inputs[i].style.display = "grid";
-	}
-}*/
 
-function dataToFeed(event, obj) {
+
+function dataToFeed(event, obj, extra1) {
 	if(hasStarted){
 		var myNode = document.getElementsByClassName("fadingFeed");
 		while (myNode[0].firstChild) {
 	    myNode[0].removeChild(myNode[0].firstChild);
 	}
-	    //$(".fadingFeed").fadeIn()
+	    var fullTextContent = '';
+		if(extra1 != null){
+			fullTextContent += ("Section " + extra1 + ": ");
+		}
+		fullTextContent += obj.textContent;
+		
 		var modal = document.getElementsByClassName("modal-body");
 		var notification = document.getElementsByClassName("fadingFeed");
-		var content = document.createTextNode(obj.textContent);
+		var content = document.createTextNode(fullTextContent);
 		var notificationContent = document.createTextNode(obj.textContent);
 		var br = document.createElement("br");
 		date = new Date();
@@ -275,7 +387,7 @@ window.onclick = function(event) {
 		var modal = document.getElementById('feed');
 		modal.style.display = "none";
 		
-		if(event.target.className != 'classroom_box'){
+		if(event.target.className != 'classroom_box' && event.target.id != 'more_students' && event.target.id != 'less_students'){
 			var inputs = document.getElementsByClassName('class_section_input');
 			for (var i = 0; i < inputs.length; i++) {
 			    inputs[i].style.display = "none";

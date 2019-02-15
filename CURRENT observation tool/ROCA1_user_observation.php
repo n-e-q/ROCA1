@@ -29,12 +29,7 @@
 				
 				
 				
-    				<div class="class_section_input" id="s1">
-    					<a>Display Question</a>
-    					<a>Response to Instructor</a>
-    					<a>Response to Student</a>
-    					<a>Makes Prediction</a>
-    				</div>
+    				<div class="class_section_input" id="s1"></div>
     				<div class="class_section_input" id="s2"></div>
     				<div class="class_section_input" id="s3"></div>
     				<div class="class_section_input" id="s4"></div>

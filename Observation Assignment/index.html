@@ -13,8 +13,8 @@
 		<link rel="stylesheet" href="supportStyle.css">
 	</head>
 	<body>
-		<div class="row"></div>
-		<div class="column left">Observation Assignment
+		<div class="column left">
+			<h2>Observation Assignment</h2>
 			<div class="box">
 				<ol id="classes">
 					<li class="class one">Class one</li>
@@ -49,7 +49,11 @@
 					<label for = ""><b>Observer: </b></label>
 					<input type = "text" id = "time" name = "time" placeholder = " " required>
 				</div>
-				<p><button class="button" onclick="showInput();">Add</button></p>
+				<div class="buttons">
+					<button class="button b1" onclick="showInput();"><p>Cancel</p></button>
+					<button class="button b2" onclick="showInput();"><p>Add</p></button>
+				</div>
+				
 			</form>
 		</div>
 		<script>

@@ -55,10 +55,13 @@ body {
 
 
 .box {
+    overflow: auto;
     margin-top: 10px;
     width:100%;
     height: 500px;
     border: 5px solid #DCDBDB;
+    min-height:600px;
+    background:#F0FFFF;
     border-radius: 25px;
 }
 

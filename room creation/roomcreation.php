@@ -24,7 +24,7 @@
           <input type = "text" name="Room" placeholder = "Room Name" />
         </p>
         <p>
-          <label>Seating Capacity:</lable><br >
+          <label>Seating Capacity:</label><br >
           <input type = "text" name="Size" placeholder = "#Seating Capacity" />
         </p>
         <p>Upload the image of the classroom.</p>

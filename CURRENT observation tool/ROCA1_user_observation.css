@@ -14,13 +14,18 @@ html {
 
 
 /*Dumb dropdown inside dropdown experiment*/
-
+.firstMenuItem {
+	width: 50%;
+	max-height: 100%;
+	overflow: hidden;
+	position: relative;
+}
 
 .dropdownInsideDropdown {
 	
     position: relative;
 	display: inline-block;
-	/*border: solid;*/
+	width: 200%;
 	
 }
 
@@ -29,11 +34,14 @@ html {
 .dropdown2-content {
 	
     display: none;
-	position: relative;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	width: 50%;
     background-color: #f1f1f1;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-	z-index: 1;
+	z-index: 10;
 	border-radius: 15px;
 	
 }
@@ -197,14 +205,6 @@ body {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.quadrant {
-	/*
-	border-style: solid;
-	border-color: transparent;
-	border-width: 2px;
-	*/
-}
-
 .grid_boxes {
  	display: block;
  	/*outline: solid;
@@ -215,39 +215,6 @@ body {
  	background-color: transparent;
  }
 
-.quad_num {
-	text-align: left;
-	font-weight: bold;
-    font-size: xx-large;
-    color: #ffffff;
-    flex-grow: 1;
-}
-
-/* Text area where # of students is displayed */
-.increment_stud {
-	width: 30%;
-	padding-right: 1%;
-}
-
-.quadrant_inputs {
-	height: 100%;
-	width: 100%;
-	z-index: 2;
-}
-
-.inc_button {
-	width: 100%; 
-	font-size: large;
-	margin: 0;
-	padding: 0;
-}
-
-.inS_text {
-	width: 100%; 
-	margin: 0;
-	font-size: medium;
-	border: none;
-}
 
 #student_events_form {	
 	height: 100%;

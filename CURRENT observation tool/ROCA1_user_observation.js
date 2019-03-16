@@ -2,7 +2,7 @@
  * 
  */
 var hasStarted = false;
-var itimer = 30;
+var itimer = 120;
 var myInterval;
 var delay;
 var delay2;
@@ -245,7 +245,6 @@ function setAllDefaultValues() {
 function start_or_stop() {
 	if(!hasStarted){
 		hasStarted = true;
-		
 		var modal = document.getElementsByClassName("modal-body");
 		var content = document.createTextNode("Observation Started.");
 		var br = document.createElement("br");
@@ -279,7 +278,7 @@ function reload() {
 	    myNode[0].removeChild(myNode[0].firstChild);
 	}
 	clearInterval(myInterval);
-	itimer = 30;
+	itimer = 120;
 }
 
 
@@ -368,13 +367,13 @@ function runIntervalTimer() {
 		var min = Math.floor(itimer / 60);
 		var sec = twoDigits(itimer % 60);
 		document.getElementById("timer").innerHTML = "";
-		if(itimer <= 100 && itimer != 0)
+		//if(itimer <= 120 && itimer != 0)
 			document.getElementById("timer").innerHTML = "Next in: " + min + ":" + sec;
 		if(itimer == 0){
 			/* Submit interval readings every time timer reaches 0*/
 			intervalSubmit();
 			document.getElementById("timer").innerHTML = "Interval submitted!";
-			itimer = 30;
+			itimer = 120;
 		}
 		else {
 			itimer = itimer -1;
@@ -422,12 +421,14 @@ function intervalSubmit() {
 	modal[0].appendChild(br);
 }
 
-function showSubmenu() {
-	document.getElementsByClassName("dropdown2-content")[0].style.display = "inline-block";
+function showSubmenu(menuID) {
+	//document.getElementsByClassName("dropdown2-content")[0].style.display = "inline-block";
 	//console.log("done")
+	document.getElementById(menuID).style.display = "inline-block";
+	//alert(menuID);
 }
 
-function hideSubmenu() {
-	document.getElementsByClassName("dropdown2-content")[0].style.display = "none";
+function hideSubmenu(menuID) {
+	document.getElementById(menuID).style.display = "none";
 	//console.log("done")
 }

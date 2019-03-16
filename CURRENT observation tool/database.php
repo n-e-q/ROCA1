@@ -5,9 +5,9 @@ class dataConnection
     
     public function data_connection()
     {
-        $this->conn=new mysqli("localhost", "dot_user", "Vb5YDh4m00!hjtNY7*^", "DOTs");
+        $this->conn=new mysqli("localhost", "dot_user", "Vb5YDh4m00!hjtNY7*^", "dots2");
         if ($this->conn->connect_errno) {
-            echo "Dalton sucks...";
+            echo "Connection error";
             exit;
         }
     }
@@ -75,18 +75,35 @@ class dataConnection
 function getfromcodebank($cID) {
     $dc = new dataConnection;
     $dc->data_connection();
-    $query = "SELECT * FROM code_bank WHERE cID=" . $cID;
+    $query = "SELECT * FROM roca_code_bank WHERE cID=" . $cID;
+    $subMenuQuery = "SELECT * FROM roca_code_bank WHERE cID = -1";
     
     $result = mysqli_query($dc->conn, $query) or die(mysqli_error($dc->conn));
+    $subMenuResult = mysqli_query($dc->conn, $subMenuQuery) or die(mysqli_error($dc->conn));
     
     while($row = mysqli_fetch_array($result)){
         /*echo "<option value='".$row['dName']."'</option>";*/
         if($cID < 5){
-            echo "<a onclick='dataToFeed(event, this, null)'>" . $row['dName'] . "</a>";
+            if(subMenuExists($row['ID'], $subMenuResult)){
+                echo "<div class='dropdownInsideDropdown'>";
+                echo "<div class='firstMenuItem'>";
+				echo "<a onclick='showSubmenu(\"submenu" . $row['ID'] . "\")'>" . $row['dN'] . "</a>";
+				echo "</div>";
+                echo "<div class='dropdown2-content' id = 'submenu" . $row['ID'] . "'>";
+                mysqli_data_seek($subMenuResult, 0);
+                getSubMenu($row['ID'], $subMenuResult);
+                echo "</div></div>";
+               
+            }
+            else{
+                echo "<a onclick='dataToFeed(event, this, null)'>" . $row['dN'] . "</a>";
+            }
+           
+           mysqli_data_seek($subMenuResult, 0);
         }
         else {
-            echo "<label class='container' title=" . $row['dName'] . ">
-								<input type='checkbox'>" . $row['code'] .
+            echo "<label class='container' title=" . $row['dN'] . ">
+								<input type='checkbox' id='check" . $row['dC'] . "'>" . $row['dC'] .
 								"<span class='checkmark'></span></label>";
         }
         /*echo json_encode($row['dName']);*/
@@ -94,4 +111,24 @@ function getfromcodebank($cID) {
     
     $dc->close_connection();
 }
+// Check if a sub menu exists for a main menu component
+function subMenuExists($ID, $result){
+    while($row = mysqli_fetch_array($result)){
+        if($row['eXT'] == $ID){
+            return True;
+        }
+    }
+    return False;
+}
+
+// Get the components of the sub menu
+function getSubMenu($ID, $result){
+    while($row = mysqli_fetch_array($result)){
+        if($row['eXT'] == $ID){
+            echo "<a onclick='dataToFeed(event, this);hideSubmenu(\"submenu" . $ID . "\");'>" . $row['dN'] . "</a>";
+        } 
+    }
+    
+}
+
  ?>

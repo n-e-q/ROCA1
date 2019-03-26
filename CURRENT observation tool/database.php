@@ -5,7 +5,7 @@ class dataConnection
     
     public function data_connection()
     {
-        $this->conn=new mysqli("localhost", "dot_user", "Vb5YDh4m00!hjtNY7*^", "dots2");
+        $this->conn=new mysqli("localhost", "dot_user", "testpassword", "dots2");
         if ($this->conn->connect_errno) {
             echo "Connection error";
             exit;
@@ -103,8 +103,8 @@ function getfromcodebank($cID) {
         }
         else {
             echo "<label class='container' title=" . $row['dN'] . ">
-								<input type='checkbox' id='check" . $row['dC'] . "'>" . $row['dC'] .
-								"<span class='checkmark'></span></label>";
+								<input type='checkbox' onclick='dataToFeed(event, this, null)' id='" . $row['dC'] . "'>" . $row['dC'] .
+								"</input><span class='checkmark'></span></label>";
         }
         /*echo json_encode($row['dName']);*/
     }

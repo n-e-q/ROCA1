@@ -6,7 +6,9 @@ var itimer = 120;
 var myInterval;
 var delay;
 var delay2;
-
+var intervalNum = 0;
+var checkboxActivities = [];
+var allActivities = [];
 var SN1, SN2, SN3, SN4, SN5, SN6;
 SN1 = SN2 = SN3 = SN4 = SN5 = SN6 = 0;
 
@@ -89,6 +91,32 @@ function shadeGrid(x1, y1, x2, y2, bid){
 	console.log("(" + x + "," + y+"); height: " + height + "; width: " + width);
 }
 
+// Updates the feed everytime a student is added only after the interval has started
+function studentNumToFeed(num, option){
+	console.log("interval num: " + intervalNum);
+	console.log(option);
+	if (option && intervalNum != 0) {
+		var content = document.createTextNode("Section " + num + " one added.");
+		var modal = document.getElementsByClassName("modal-body");
+	var br = document.createElement("br");
+	date = new Date();
+	var timeStamp = document.createTextNode("[" + twoDigits(date.getHours()) + ":" + twoDigits(date.getMinutes()) + ":" + twoDigits(date.getSeconds()) + "] ");
+	modal[0].appendChild(timeStamp);
+	modal[0].appendChild(content);
+	modal[0].appendChild(br);
+	}
+	if (!option && intervalNum != 0) {
+		var content = document.createTextNode("Section " + num + " one removed.");
+		var modal = document.getElementsByClassName("modal-body");
+	var br = document.createElement("br");
+	date = new Date();
+	var timeStamp = document.createTextNode("[" + twoDigits(date.getHours()) + ":" + twoDigits(date.getMinutes()) + ":" + twoDigits(date.getSeconds()) + "] ");
+	modal[0].appendChild(timeStamp);
+	modal[0].appendChild(content);
+	modal[0].appendChild(br);
+	}
+	
+}
 
 function updateStudentNum(obj, num){
 	var id = "numStudentLabel" + num;
@@ -97,53 +125,65 @@ function updateStudentNum(obj, num){
 		switch (num) {
 		  case 1:
 		    SN1++;
-		    label.textContent = SN1;
+			label.textContent = SN1;
+			studentNumToFeed(num, true);
 		    break;
 		  case 2:
 			SN2++;
 			label.textContent = SN2;
+			studentNumToFeed(num, true);
 			break;
 		  case 3:
 			SN3++;
 			label.textContent = SN3;
+			studentNumToFeed(num, true);
 		    break;
 		  case 4:
 			SN4++;
 			label.textContent = SN4;
+			studentNumToFeed(num, true);
 		    break;
 		  case 5:
 			SN5++;
 			label.textContent = SN5;
+			studentNumToFeed(num, true);
 		    break;
 		  case 6:
 			SN6++;
 			label.textContent = SN6;
+			studentNumToFeed(num, true);
 		}
 	}else {
 		switch (num) {
 		  case 1:
 		    if(SN1 > 0)SN1--;
-		    label.textContent = SN1;
+			label.textContent = SN1;
+			studentNumToFeed(num, false);
 		    break;
 		  case 2:
 			if(SN2 > 0)SN2--;
 			label.textContent = SN2;
+			studentNumToFeed(num, false);
 			break;
 		  case 3:
 			if(SN3 > 0)SN3--;
 			label.textContent = SN3;
-		    break;
+			studentNumToFeed(num, false);
+			break;
 		  case 4:
 			if(SN4 > 0)SN4--;
 			label.textContent = SN4;
-		    break;
+			studentNumToFeed(num, false);
+			break;
 		  case 5:
 			if(SN5 > 0)SN5--;
 			label.textContent = SN5;
-		    break;
+			studentNumToFeed(num, false);
+			break;
 		  case 6:
 			if(SN6 > 0)SN6--;
 			label.textContent = SN6;
+			studentNumToFeed(num, false);
 		}
 	}
 }
@@ -209,6 +249,8 @@ function hideAll() {
 function setAllDefaultValues() {
 	//alert("hello!");
 	hasStarted = false;
+	intervalNum = 0;
+	SN1 = SN2 = SN3 = SN4 = SN5 = SN6 = 0;
 	var inputs = document.getElementsByClassName("class_section_input");
 	for (var i = 0; i < inputs.length; i++) {
 	    inputs[i].style.display = "none";
@@ -245,6 +287,20 @@ function setAllDefaultValues() {
 function start_or_stop() {
 	if(!hasStarted){
 		hasStarted = true;
+
+		// If this is the very first time starting, submit number of students in each section to Feed
+		if (intervalNum === 0) {
+			intervalNum += 1;
+			var modal = document.getElementsByClassName("modal-body");
+			var content = document.createTextNode("Section 1: " + SN1 + ", Section 2: " + SN2 + ", Section 3: " + SN3+ ", Section 4: " + SN4 + ", Section 5: " + SN5 + ", Section 6: " + SN6);
+			var br = document.createElement("br");
+			date = new Date();
+			var timeStamp = document.createTextNode("[" + twoDigits(date.getHours()) + ":" + twoDigits(date.getMinutes()) + ":" + twoDigits(date.getSeconds()) + "] ");
+			modal[0].appendChild(timeStamp);
+			modal[0].appendChild(content);
+			modal[0].appendChild(br);
+		}
+
 		var modal = document.getElementsByClassName("modal-body");
 		var content = document.createTextNode("Observation Started.");
 		var br = document.createElement("br");
@@ -274,9 +330,9 @@ function start_or_stop() {
 function reload() {
 	setAllDefaultValues();
 	var myNode = document.getElementsByClassName("modal-body");
-	while (myNode[0].firstChild) {
-	    myNode[0].removeChild(myNode[0].firstChild);
-	}
+	// while (myNode[0].firstChild) {
+	//     myNode[0].removeChild(myNode[0].firstChild);
+	// }
 	clearInterval(myInterval);
 	itimer = 120;
 }
@@ -286,14 +342,17 @@ function reload() {
 function dataToFeed(event, obj, extra1) {
 	if(hasStarted){
 		var myNode = document.getElementsByClassName("fadingFeed");
+		var nodeName = obj.nodeName;
+
 		while (myNode[0].firstChild) {
-	    myNode[0].removeChild(myNode[0].firstChild);
+			myNode[0].removeChild(myNode[0].firstChild);
 	}
 	    var fullTextContent = '';
 		if(extra1 != null){
 			fullTextContent += ("Section " + extra1 + ": ");
 		}
 		fullTextContent += obj.textContent;
+
 		
 		var modal = document.getElementsByClassName("modal-body");
 		var notification = document.getElementsByClassName("fadingFeed");
@@ -302,10 +361,34 @@ function dataToFeed(event, obj, extra1) {
 		var br = document.createElement("br");
 		date = new Date();
 		var timeStamp = document.createTextNode("[" + twoDigits(date.getHours()) + ":" + twoDigits(date.getMinutes()) + ":" + twoDigits(date.getSeconds()) + "] ");
-		modal[0].appendChild(timeStamp);
-		modal[0].appendChild(content);
-		modal[0].appendChild(br);
-		notification[0].appendChild(notificationContent);
+		
+		
+		if (nodeName === "INPUT") {
+			if (obj.checked) {
+				checkboxActivities.push(obj.getAttribute('id'));
+				allActivities.push(obj.getAttribute('id').toString());
+				// modal[0].appendChild(timeStamp);
+				// modal[0].appendChild(document.createTextNode(obj.getAttribute('id')));
+				// modal[0].appendChild(br);
+				// notification[0].appendChild(checkNotification);
+			}
+			else { 
+				checkboxActivities.splice(checkboxActivities.indexOf(obj.getAttribute('id')), 1);
+				allActivities.splice(allActivities.indexOf(obj.getAttribute('id')), 1);
+			// 	var uncheckNotification = document.createTextNode("Unchecked " + obj.getAttribute('id'));
+			// 	modal[0].appendChild(timeStamp);
+			// 	modal[0].appendChild(document.createTextNode("Unchecked " + obj.getAttribute('id')));
+			// 	modal[0].appendChild(br);
+			// 	notification[0].appendChild(uncheckNotification);
+			}
+		}	
+		else {
+			modal[0].appendChild(timeStamp);
+			modal[0].appendChild(content);
+			modal[0].appendChild(br);
+			notification[0].appendChild(notificationContent);
+			allActivities.push(notificationContent.wholeText);
+		}
 		
 		//$(".fadingFeed").delay(2000).fadeOut()
 		
@@ -412,13 +495,16 @@ function intervalSubmit() {
 	intForm.reset();
 	
 	var modal = document.getElementsByClassName("modal-body");
-	var content = document.createTextNode("Interval submitted.");
+	var content = document.createTextNode("Interval submitted. " + checkboxActivities.toString());
 	var br = document.createElement("br");
 	date = new Date();
 	var timeStamp = document.createTextNode("[" + twoDigits(date.getHours()) + ":" + twoDigits(date.getMinutes()) + ":" + twoDigits(date.getSeconds()) + "] ");
 	modal[0].appendChild(timeStamp);
 	modal[0].appendChild(content);
 	modal[0].appendChild(br);
+
+	checkboxActivities = [];
+	console.log(allActivities.toString());
 }
 
 function showSubmenu(menuID) {

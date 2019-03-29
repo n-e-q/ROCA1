@@ -9,6 +9,7 @@ html {
   background-color: white;
 }
 body {
+    font-family: product sans, sans-serif;
   background-color: white; 
   height: 100%;
   width: 100%;
@@ -120,4 +121,14 @@ li {
   width: 90%;
   height: 200px;
   background-color: gray;
+}
+
+/* Input */
+input {
+    background-color: white;
+}
+
+input[type=email],[type=password],[type=text]{
+  color: black;
+  background-color: white;
 }
